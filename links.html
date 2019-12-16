@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head> <title> Links </title> 
+  <style>
+      div {
+        margin-top:10px;
+        margin-left:10px;
+        border: 2px solid black;
+        background-color:lightyellow;
+        padding:10px;
+        float:left;
+       }
+       a {
+           text-decoration:none;
+        }
+       a:hover {
+           text-decoration:underline;
+        }
+       a:link {
+          color:red;
+       }
+       a:visited {
+          color:green;
+       }
+       a:active {
+          color:yellow;
+       }
+  </style>
+  <script>
+       function chat() {
+          prompt("Your Message:");
+       }
+  </script>
+</head>
+<body>
+ <header align="center">
+     <font size="5"> Site Map </font>
+ </header>
+ <div>
+     <h3> Our Sites </h3>
+      <ol>
+         <li> <a href="http://www.amazon.in">  Amazon Shopping </a> </li> 
+         <li> <a href="http://www.flipkart.com"> Flipkart </a> </li>
+      </ol>
+ </div>
+ <div>
+     <h3> Our Pages </h3>
+    <ol>
+    <li><a href="login.html" target="frameBody"> Login </a> </li>
+    <li><a href="tutorial.html" target="frameBody">Tutorial</a> </li>
+     </ol>
+</div>    
+<div>
+  <h3> Contact Us </h3>
+   <ol>
+      <li> <a href="javascript:chat()"> Chat with HR </a> </li>
+      <li> <a href="mailto:hr@nareshit.in"> Email Us </a> </li>
+   </ol>
+</div>
+<div>
+  <h3> Documents </h3>
+  <ol>
+     <li> <a href="Resources/cssdemo.pdf"> CSS Tutorial </a> </li>
+     <li><a href="Resources/collections.doc"> Collections </a> </li>
+     <li> <a href="javascript:window.open('Images/tv.jpg','TV','width=500 height=300')"> Samsung TV </a> </li>
+  </ol>
+</div>
+ <section>
+      <iframe style="border-style:none" name="frameBody" width="600" height="300"> </iframe>
+ </section>
+</body>
+</html>
