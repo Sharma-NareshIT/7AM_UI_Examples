@@ -1,0 +1,149 @@
+	   JavaScript Browser Events
+1. Mouse Events
+2. Key Events
+3. Timer Events
+4. Miscelaneous Events
+
+Mouse Events in JavaScript:
+    The mouse events are used to handle interactions when user is moving the mouse and handling various mouse buttons.
+
+Event		Description
+============================================
+onmouseover	It specifies the action when 		mouse pointer is over any 		element.
+onmouseout	It specifies the action when
+		mouse pointer is moved out of
+		any element.
+onmousedown	It specifies the action to perform
+		when mouse button is down
+		over any element.
+onmouseup	It specifies the action to perform	
+		when mouse button is released
+		over the element.
+onmousemove	It specifies the action to perform
+		when mouse pointer is moving
+		over any element.
+
+
+Ex: MouseOver and Mouse Out
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mouse Events</title>
+        <script>
+            function ad1() {
+                document.getElementById("ad").src="../Images/pepsi.jpg";
+            }
+            function ad2(){
+                document.getElementById("ad").src="../Images/rDigital.jpg";
+            }
+            function ChangeColor(){
+                document.getElementById("box").style.backgroundColor = "red";
+            }
+            function DefaultColor() {
+                document.getElementById("box").style.backgroundColor = "yellow";
+            }
+            function ZoomIn(){
+                document.getElementById("shoe").className="zoomin";
+            }
+            function ZoomOut(){
+                document.getElementById("shoe").className="zoomout";
+            }
+        </script>
+        <style>
+            #box {
+                width: 400px;
+                height: 50px;
+                border: 2px solid darkcyan;
+                background-color: yellow;
+            }
+            .zoomin {
+                width: 300px;
+                height: 200px;
+            }
+            .zoomout {
+                width: 100px;
+                height: 100px;
+            }
+        </style>
+    </head>
+    <body onload="ad1()">
+        <h2>Mouse over ads will change</h2>
+        <img onmouseover="ad2()" onmouseout="ad1()" id="ad" width="400" height="100">
+        <h2>Mouse over Demo</h2>
+        <div id="box" onmouseover="ChangeColor()" onmouseout="DefaultColor()">
+
+        </div>
+        <h2>Mouse Over Zoom</h2>
+        <div style="margin: auto;">
+            <img onmouseover="ZoomIn()" onmouseout="ZoomOut()" id="shoe" src="../Images/shoe.jpg" width="100" height="100">
+        </div>
+    </body>
+</html>
+
+
+Ex: Mouse Down and Mouse Up
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mouse Down Demo</title>
+        <script>
+            function ON(){
+                document.getElementById("bulb").src="../Images/bulbon.png";
+            }
+            function OFF(){
+                document.getElementById("bulb").src="../Images/bulboff.png";
+            }
+        </script>
+    </head>
+    <body>
+        <img onmousedown="ON()" onmouseup="OFF()" id="bulb" src="../images/bulboff.png">
+        <h2>Press hold down your mouse button to turn ON bulb and release to OFF.</h2>
+    </body>
+</html>
+
+
+Ex: Mouse Move
+      
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mouse Move</title>
+        <style>
+            span {
+                color:white;
+                cursor:move;
+            }
+        </style>
+        <script>
+            function GetColorName(e){
+                var msg = document.getElementById("msg");
+                if(e.clientX>=8 && e.clientX<=73) {
+                    msg.style.color="red";
+                } else if(e.clientX>=74 && e.clientX<=152) {
+                    msg.style.color="green";
+                } else if(e.clientX>=155 && e.clientX<=220) {
+                    msg.style.color="blue";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div style="width: 400px;" onmousemove="GetColorName(event)">
+            <span style="width:100px; height: 100px; background-color: red;">
+                Red color
+            </span>
+            <span style="width:100px; height: 100px; background-color: green;">
+                Green color
+            </span>
+            <span style="width:100px; height: 100px; background-color: blue;">
+                Blue color
+            </span>
+        </div>
+        <div>
+            <h1 id="msg">Sample Text</h1>
+        </div>
+    </body>
+</html>
+
