@@ -1,0 +1,114 @@
+Mouse Events
+- onmouseover
+- onmouseout
+- onmousedown
+- onmouseup
+- onmousemove
+
+Ex: Mouse Move Animation
+
+<head>
+    <script>
+        function Track(e){
+            var flag = document.getElementById("flag");
+            flag.style.position = "fixed";
+            flag.style.left = e.clientX + "px";
+            flag.style.top = e.clientY + "px";
+        }
+    </script>
+</head>
+<body onmousemove="Track(event)">
+    <div style="height: 1000px;">
+
+    </div>
+    <img id="flag" src="../Images/flag.gif" width="100" height="100">
+</body>
+
+KeyEvents:
+- The key events specify actions to perform while user is keying in the characters. [Typing]
+
+Event		Description
+===========================================
+onkeyup		It specifies actions  to perform
+		when key is released.
+onkeydown	It specifies actions to perform
+		when user hold down key.
+onkeypress	It specifies actions to perform
+		when user finish a key.
+
+
+KeyEvent Properties                 Description
+============================================
+keyCode		It returns the actual key code
+		ASCII value of key.
+		A=65, Z=90
+charCode		It also returns the character code
+		only on char keys. 
+
+which		It is also same as keyCode but
+		it is suitable for all keyboard
+		layouts.
+
+altKey		It returns true if alt key used
+shiftKey		It returns true if shift key used
+ctrlKey		It returns true if ctrl key used.
+
+Ex:
+<head>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/fonts/css/all.css">
+    <style>
+        .container {
+            margin: auto;
+            width: 50%;
+        }
+    </style>
+    <script>
+        var userslist = [
+            {UserName: "john"},
+            {UserName: "john12"},
+            {UserName: "david_nit"},
+            {UserName: "david1"}
+        ];
+        function VerifyUser(){
+            var username = document.getElementById("txtName").value;
+            var msg = document.getElementById("msg");
+
+            for(var i=0; i<userslist.length; i++) {
+                 if(userslist[i].UserName==username) {
+                    msg.className="text-danger";
+                    msg.innerHTML="User Name Taken - Try Another";
+                    break;
+                 } else {
+                     msg.className="text-success";
+                     msg.innerHTML="User Name Available";
+                 }
+            }
+        }
+        function VerifyCaps(e) {
+            var warn = document.getElementById("warn");
+            if(e.keyCode>=65 && e.keyCode<=90) {
+                warn.style.display="block";
+            } else {
+                warn.style.display="none";
+            }
+        }
+    </script>
+</head>
+<body class="container">
+    <h2>Register User</h2>
+    <div class="form-group">
+        <label>User Name</label>
+        <div>
+            <input class="form-control" type="text" id="txtName" onkeyup="VerifyUser()" >
+            <span id="msg"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <div>
+            <input type="password" id="txtPwd" class="form-control" onkeypress="VerifyCaps(event)">
+            <span style="display: none;" id="warn" class="text-warning"><span class="fa fa-exclamation-triangle"></span>Caps is ON</span>
+        </div>
+    </div>
+</body>
