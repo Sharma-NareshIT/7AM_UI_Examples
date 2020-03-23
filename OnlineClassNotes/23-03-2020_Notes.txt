@@ -1,0 +1,148 @@
+
+Miscelaneous Events
+- onfocus
+- onblur
+- onchange
+- oncut
+- oncopy
+- onpaste
+- onselect
+- onselectstart
+- onload
+- onsubmit
+- onreset
+
+
+OnFocus & OnBlur
+================
+- Onfocus will specify actions to perform when any element gets focus.
+- OnBlur specifies actions to perform when the element looses focus.
+
+Ex-1:
+<head>
+    <script>
+        function ShowTip() {
+            document.getElementById("msg").innerHTML = "Name in Block Letters Only";
+        }
+        function ChangeCase(){
+            document.getElementById("msg").innerHTML= "";
+            var username = document.getElementById("txtName").value;
+            document.getElementById("txtName").value = username.toUpperCase();
+
+        }
+    </script>
+</head>
+<body>
+    User Name :
+    <input type="text" onfocus="ShowTip()" onblur="ChangeCase()" placeholder="Name in Block Letters" id="txtName">
+    <span id="msg"></span>
+</body>
+
+Ex-2: (Validation)
+
+<head>
+    <style>
+        .valid {
+            border:1px solid green;
+            box-shadow: 0px 3px 4px green;
+        }
+        .invalid {
+            border:1px solid red;
+            box-shadow: 0px 3px 4px red;
+        }
+    </style>
+    <script>
+        function ShowError(){
+            var username = document.getElementById("txtName");
+            if(username.value=="") {
+                username.className="invalid";
+            } else {
+                username.className="valid";
+            }
+        }
+    </script>
+</head>
+<body>
+    User Name :
+    <input type="text" onblur="ShowError()" id="txtName" placeholder="Name Required">
+</body>
+
+OnChange:
+ It specifies the actions to perform when user is changing the value. You can use this event for elements like textbox, dropdown, number, range etc.
+
+Ex:
+<head>
+    <script>
+        function Zoom() {
+            var rangeValue = document.getElementById("txtRange").value;
+            var pic = document.getElementById("pic");
+            switch(parseInt(rangeValue)) {
+                case 1:
+                pic.style.height = "100px";
+                pic.style.width = "100px";
+                break;
+                case 2:
+                pic.style.height = "200px";
+                pic.style.width = "200px";
+                break;
+                case 3:
+                pic.style.height = "300px";
+                pic.style.width = "300px";
+                break;
+                case 4:
+                pic.style.height = "400px";
+                pic.style.width = "400px";
+                break;
+                case 5:
+                pic.style.height = "500px";
+                pic.style.width = "500px";
+                break;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div align="center">
+       Zoom Out <input type="range" onchange="Zoom()" min="1" max="5" value="1" id="txtRange"> Zoom In
+    </div>
+    <div align="center" style="margin:auto; margin-top: 30px;">
+        <img id="pic" src="../Images/shoe.jpg" width="100" height="100">
+    </div>
+</body>
+
+OnCut, OnCopy, OnPaste:
+  These events are used to specify actions to perform when user finish operations like cut, copy and paste inside any element.
+
+Ex:
+<head>
+    <script>
+        function Cut() {
+            document.getElementById("msg").innerHTML = "Removed and Placed on ClipBoard";
+        }
+        function Copy() {
+            document.getElementById("msg").innerHTML = "Message Copied";
+        }
+        function Paste() {
+            document.getElementById("msg").innerHTML = "Inserted from Clipboard- Paste";
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Your Comments</legend>
+        <textarea oncut="Cut()" oncopy="Copy()" onpaste="Paste()" rows="5" cols="40"></textarea>
+    </fieldset>
+    <div id="msg" style="margin-top: 20px; font-size: 2em; font-weight: bold;" align="center">
+
+    </div>
+</body>
+
+FAQ: How to disable cut, copy, paste, rightclick, selection in Page?
+A: Write the event in body and set "return false".
+
+Ex:
+<body onselect="return false" onselectstart="return false" onselectionstart="return false" oncontextmenu="return false" oncut="return false" oncopy="return false" onpaste="return false">
+    <h2>You can't Copy our Content</h2>
+    <p>Right Click Disabled on this Page.</p>
+</body>
+
