@@ -1,0 +1,129 @@
+onchange, oncut, oncopy, onpaste, oncontextmenu
+onselectstart, onfocus, onblur, onclick, ondblclick, onsubmit, onreset
+
+Ex: ondblclick
+      It specifies the actions to perform when user double clicks on any element.
+
+<head>
+    <script>
+        function OpenPicture(){
+           window.open("../Images/tv.jpg", "TV", "width=400 height=300");
+        }
+    </script>
+    <style>
+        img:hover {
+            cursor:move;
+        }
+    </style>
+</head>
+<body>
+    <img ondblclick="OpenPicture()" src="../Images/tv.jpg" width="100" height="100">
+    <p>Double Click to Open Image</p>
+</body>
+
+Onload : It specifies the actions to perform when bodyloads or any image load.
+
+Syntax:
+<body onload="alert('This is Page Load')">
+
+onsubmit and onreset:
+==================
+ - Submit and Reset are events defined for form element.
+ - Submit event firesup on submit click
+ - Reset event firesup on reset click
+ - Form can submit or reset only by using the
+   generic buttons i.e submit or reset.
+
+Ex:
+<body>
+    <form onsubmit="alert('Form Data will be posted')" onreset="alert('Form will reset')">
+        <fieldset>
+            <legend>Product Details</legend>
+            <dl>
+                <dt>Name</dt>
+                <dd><input type="text"></dd>
+                <dt>Price</dt>
+                <dd><input type="text"></dd>
+            </dl>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+            <input type="button" value="Register">
+        </fieldset>
+    </form>
+</body>
+
+FAQ: How to submit the form on any another element event? Like Dropdown selection changed.
+A.  Write Event for the element
+      on Element event call "form.submit()" method.
+      It requires a reference name for form.
+
+Ex:
+<head>
+    <script>
+        function SubmitCity() {
+          frmHome.submit();
+        }
+    </script>
+</head>
+<body>
+    <form name="frmHome">
+        <fieldset>
+            <legend>Select City</legend>
+            <select name="lstCity" onchange="SubmitCity()">
+                <option>Delhi</option>
+                <option>Hyd</option>
+                <option>Chennai</option>
+            </select>      
+        </fieldset>
+    </form>
+</body>
+
+Timer Events:
+ The timer events are used to perform any specific functionality at regular time intervals.
+ a) setTimeOut()
+ b) clearTimeOut()
+ c) setInterval()
+ d) clearInterval()
+
+setTimeout() : It is a timer function, It locks the task and make the task sleep for some duration of time, and release the task after the time interval.
+
+Syntax:
+          setTimeOut(function(), timeInterval)
+                                                  [milliseconds]
+			1000 = 1 sec
+
+clearTimeout(): It is used to clear any function from memory before execution.
+
+Syntax:
+           clearTimeout(functionReference);
+
+Ex:
+<head>
+    <script>
+        function msg1(){
+            document.getElementById("msg").innerHTML = "Hello !";
+        }
+        function msg2() {
+            document.getElementById("msg").innerHTML = "How are You?";
+        }
+        function msg3() {
+            document.getElementById("msg").innerHTML = "Welcome to JavaScript";
+        }
+        function bodyload(){
+          window.m1 = setTimeout(msg1,2000);
+          window.m2 = setTimeout(msg2,4000);
+          window.m3 = setTimeout(msg3,6000);
+        }
+        function ClearClick() {
+            clearTimeout(m2);
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <div id="msg" align="center" style="width: 400; height: 70; font-size: 2em; background-color: darkcyan; color:white; margin-top: 20px; margin:auto">
+
+    </div>
+    <div align="center">
+        <button onclick="ClearClick()">Clear Message 2</button>
+    </div>
+</body>
