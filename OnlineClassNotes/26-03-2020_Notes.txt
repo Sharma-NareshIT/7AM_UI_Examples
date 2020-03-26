@@ -1,0 +1,113 @@
+Timer Events
+- setTimeout()
+- clearTimeout()
+ 
+Note: SetTimeout will load the taks into memory, then gives task to process, after process it is removed from memory. Hence task will execute only once.
+          If you want the task to execute again then you have to load into memory again.
+	       Task - function
+
+setInterval():
+==========
+ It is a timer function that loads the task into memory and gives to the process without removing from memory. It continues to give the task to the process until you clear from memory.
+         Syntax:
+	setInterval(function(), timeInterval);
+
+clearInterval(): 
+============
+ It is a timer function that clear the task from memory.
+
+Syntax:
+	clearInterval(memoryReference)
+
+Ex: Time 
+<head>
+  <style>
+      #msg {
+          width: 300px;
+          height: 50px;
+          background-color: darkcyan;
+          color: white;
+          text-align: center;
+          margin: auto;
+          margin-top: 20px;
+          font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+          font-size: 2em;
+      }
+  </style>
+  <script>
+      function GetTime(){
+          var now = new Date();
+          document.getElementById("msg").innerHTML = now.toLocaleTimeString();
+      }
+      function bodyload(){
+         window.time = setInterval(GetTime,1000);
+      }
+      function StartClick(){
+          bodyload();
+      }
+      function StopClick(){
+          clearInterval(time);
+      }
+  </script>
+</head>
+<body onload="bodyload()">
+    <div id="msg">
+
+    </div>
+    <div align="center" style="margin-top: 30px;">
+        <button onclick="StartClick()">Start</button>
+        <button onclick="StopClick()">Stop</button>
+    </div>
+</body>
+
+Ex: Timer- Slide Show of Images
+
+<head>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/fonts/css/all.css">
+    <script>
+        var cars = [
+            {Title:"Audi Q7", Photo:"../Images/Cars/1.jpg"},
+            {Title:"Audi-1", Photo:"../Images/Cars/2.jpg"},
+            {Title:"Range Rower", Photo:"../Images/Cars/3.jpg"},
+            {Title:"Audi-2", Photo:"../Images/Cars/4.jpg"},
+            {Title:"Audi-3", Photo:"../Images/Cars/5.jpg"},
+            {Title:"Ferrari", Photo:"../Images/Cars/9.jpg"},
+        ]
+        var count = 0;
+        function GetPhoto(){
+            document.getElementById("title").innerHTML = cars[count].Title;
+            document.getElementById("pic").src= cars[count].Photo;
+           
+            count++;
+        }
+        function PlayClick() {
+            window.slideshow = setInterval(GetPhoto,4000);
+            document.getElementById("status").innerHTML = "(Playing)";
+        }
+        function PauseClick() {
+            clearInterval(slideshow);
+            document.getElementById("status").innerHTML ="(Paused)";
+        }
+    </script>
+</head>
+<body onload="GetPhoto()">
+    <div class="container-fluid">
+        <div style="margin-top: 20px;">
+           <div class="card">
+             <div class="card-header text-center">
+                <div id="title">
+                </div>
+                <div id="status"></div>
+             </div>
+             <div class="card-body" style="height: 300px;">
+                <img width="100%" height="100%" id="pic">
+             </div>
+             <div class="card-footer text-white text-center">
+                <button onclick="PlayClick()" class="btn btn-outline-warning"> <span class="fa fa-play text-primary"></span> </button>
+                <button onclick="PauseClick()" class="btn btn-outline-warning"><span class="fa fa-pause text-primary"></span></button>
+             </div>
+           </div>
+        </div>
+    </div>
+</body>
