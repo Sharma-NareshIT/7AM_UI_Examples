@@ -1,0 +1,104 @@
+	     JavaScript Browser Objects
+- JavaScript BOM & DOM
+- JavaScript Browser Objects
+	a) window
+	b) location
+	c) navigator
+	d) history
+	e) document
+- JavaScript Window Object
+  "window" object provides a set of properties and methods that are used to control the browser window.
+
+   Member		Description
+   ====================================
+   open()         Opens any document in a new window
+   close()	      Closes the current document.
+   print()          Print the current document.
+
+Syntax:
+  window.open("filePath", "Title", "properties");
+   
+   properties in open method:
+   - toolbar= yes/no
+   - scrollbars=yes/no
+   - resizable=yes/no
+   - top = 300
+   - left = 200
+   - width = 200
+   - height= 100
+
+  window.close();
+        window.close(windowRefernce);
+  window.print();
+
+Ex: Window Object
+<head>
+    <script>
+        function OpenClick() {
+           adWidow =  window.open("../Images/Pepsi.jpg","Pepsi","toolbar=no,resizable=no, left=100, top=300, width=400,height=100");
+        }
+        function OpenBlank() {
+            blankWindow = window.open("","blankWindow","width=300, height=400");
+            blankWindow.document.write("<h2>Sample Window</h2>");
+        }
+        function CloseAd() {
+            adWidow.close();
+        }
+    </script>
+</head>
+<body>
+    <h2>Browser Window Object</h2>
+    <button onclick="OpenClick()">Open Ads</button>
+    <button onclick="OpenBlank()">Open Blank</button>
+    <button onclick="window.close()">Close</button>
+    <button onclick="CloseAd()">Close Ads</button>
+    <button onclick="window.print()">Print</button>
+</body>
+
+JavaScript Location Object
+======================
+ - It provides a set of properties and methods that are used to handle the client location details.
+
+Member		Description
+----------------------------------------------------------------------------
+host		It returns the server Name or 
+		IP address
+port		It returns the port number.
+protocol		It returns the current protocol.
+href		It returns the complete URL.
+pathname		It returns the current path.
+hash		It returns the current hash name.
+search		It returns the querystring.
+		[?name=value&name=value]
+reload()		It reloads the window.
+
+Ex: Get Client Location Details
+
+<head>
+    <script>
+        function GetDetails(){
+            document.getElementById("host").innerHTML = location.host;
+            document.getElementById("protocol").innerHTML =`${location.protocol}<br> ${(location.protocol=="http:")?"You are using WebServer":"You are using File Server"}`;
+            document.getElementById("url").innerHTML = location.href;
+        }
+    </script>
+    <style>
+        dt {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <h2>Location Details</h2>
+    <div>
+        <button onclick="GetDetails()">Get Details</button>
+    </div>
+    <dl>
+        <dt>Server Name / IP</dt>
+        <dd id="host"></dd>
+        <dt>Protocol</dt>
+        <dd id="protocol"></dd>
+        <dt>URL</dt>
+        <dd id="url"></dd>
+    </dl>
+</body>
