@@ -1,0 +1,149 @@
+Ex: Location Details
+
+<head>
+    <script>
+        function GetDetails(){
+            document.getElementById("host").innerHTML = location.host;
+            document.getElementById("protocol").innerHTML =`${location.protocol}<br> ${(location.protocol=="http:")?"You are using WebServer":"You are using File Server"}`;
+            document.getElementById("url").innerHTML = location.href;
+            document.getElementById("port").innerHTML= location.port;
+            document.getElementById("path").innerHTML = location.pathname;
+        }
+    </script>
+    <style>
+        dt {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <h2>Location Details</h2>
+    <div>
+        <button onclick="GetDetails()">Get Details</button>
+        <button onclick="location.reload()">Refresh</button>
+    </div>
+    <dl>
+        <dt>Server Name / IP</dt>
+        <dd id="host"></dd>
+        <dt>Port</dt>
+        <dd id="port"></dd>
+        <dt>Protocol</dt>
+        <dd id="protocol"></dd>
+        <dt>URL</dt>
+        <dd id="url"></dd>
+        <dt>Path</dt>
+        <dd id="path"></dd>
+    </dl>
+</body>
+
+Ex: Location Search : It is used to get the query string from URL.
+       Submit on GET  : Data will be in QueryString
+       submit on POST: Data will be in form message
+		 body.
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Location Search</title>
+        <script>
+            function SearchClick(){
+                var queryString = location.search;
+                var equalPosition = queryString.indexOf("=");
+                var word = queryString.substring(equalPosition + 1);
+                document.getElementById("msg").innerHTML =`You are Searching for ${word}`;
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+        <div align="center">
+            <h1>Google</h1>
+            <input type="text" name="txtSearch" id="txtSearch" size="40">
+            <div style="margin-top: 30px;">
+                <button type="submit">Submit</button>
+                <button onclick="SearchClick()" type="button">Search</button>
+            </div>
+            <div id="msg" style="margin-top: 20px;">
+
+            </div>
+        </div>
+        </form>
+    </body>
+</html>
+
+Ex: location hash : It is used to access the # location of your page. 
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tutorial</title>
+        <style>
+            .leftPanel {
+                width: 200px;
+                height: 400px;
+                border:2px solid darkcyan;
+                margin-top: 20px;
+                margin-left: 20px;
+                float: left;
+            }
+            .rightPanel {
+                width: 70%;
+                height: 400px;
+                border:2px solid darkcyan;
+                margin-top: 20px;
+                margin-left: 20px;
+                float: left;
+                overflow: scroll;
+            }
+        </style>
+        <script>
+            function GetDetails() {
+                var recentTopic;
+                switch(location.hash) {
+                    case "#html":
+                    recentTopic = "HTML Tutorial";
+                    break;
+                    case "#css":
+                    recentTopic = "CSS Examples";
+                    break;
+                    case "#js":
+                    recentTopic = "JavaScript Tutorial";
+                    break;
+                }
+                document.getElementById("msg").innerHTML = recentTopic;
+            }
+        </script>
+    </head>
+    <body>
+        <div class="leftPanel">
+            <ul>
+                <h3>Table of Contents</h3>
+                <li><a href="#html">HTML Basics</a></li>
+                <li><a href="#css">CSS Examples</a></li>
+                <li><a href="#js">JavaScript Tutorial</a></li>
+            </ul>
+            <div style="margin-left: 20px;">
+                <button onclick="GetDetails()">Recently Viewed</button>
+                <h3 id="msg"></h3>
+            </div>
+        </div>
+        <div class="rightPanel">
+            <h2 id="html">HTML Basics</h2>
+            <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.</p>
+            <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.</p>
+            <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.</p>
+            <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.</p>
+            <h2 id="css">CSS Examples</h2>
+            <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.</p>
+            <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.</p>
+            <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.</p>
+            <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.</p>
+            <h2 id="js">JavaScript Tutorial</h2>
+            <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.</p>
+            <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.</p>
+            <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.</p>
+            <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.</p>
+        </div>
+    </body>
+</html>
+
+
