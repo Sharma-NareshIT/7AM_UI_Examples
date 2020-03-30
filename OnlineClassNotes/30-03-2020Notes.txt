@@ -1,0 +1,142 @@
+Window Object
+Location Object
+Navigator Object
+
+	           Navigator
+- It provides set of properties and methods that are used to access the client browser details. i.e which browser family user is using, which version of browser the client is using, what plugin's are supported on client browser etc..
+
+ Members		Description
+ ========================================
+ appName		It returns the browser family
+		name.
+ appVersion	It returns the browser version
+ userAgent	It returns the supported platform
+ platform		It returns the current client
+		platform [OS]
+ language		It returns the current browser
+		language [us-en]
+ plugins[]		It is an array of all plugins				available on browser.
+ mimeTypes[]	It returns all mime types 
+		supported on browser.
+ cookieEnable	It returns the cookie status.
+
+
+Ex: Browser Details using Navigator
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Navigator</title>
+        <style>
+            dt{ 
+                font-weight: bold;
+                margin-top: 20px;
+                background-color: lightgray;
+            }
+        </style>
+        <script>
+            function GetDetails() {
+                document.getElementById("family").innerHTML = navigator.appName;
+                document.getElementById("platform").innerHTML = navigator.platform;
+                document.getElementById("lang").innerHTML = navigator.language;
+                document.getElementById("agent").innerHTML = navigator.userAgent;
+                document.getElementById("cookie").innerHTML = `${navigator.cookieEnabled}<br>${(navigator.cookieEnabled==true)?"Cookies Enabled":"Disabled : Please Enable Cookies on Your Browser"}`;
+            }
+        </script>
+    </head>
+    <body>
+        <fieldset>
+            <legend><button onclick="GetDetails()">Get Client Browser Details</button></legend>
+            <dl>
+                <dt>Browser Family</dt>
+                <dd id="family"></dd>
+                <dt>Platform</dt>
+                <dd id="platform"></dd>
+                <dt>Language</dt>
+                <dd id="lang"></dd>
+                <dt>User Agent</dt>
+                <dd id="agent"></dd>
+                <dt>Cookie Enabled</dt>
+                <dd id="cookie"></dd>
+            </dl>
+        </fieldset>
+    </body>
+</html>
+
+Ex: Plugin - It is a software tool installed for your browser to handle specific type of content, like PDF document, Audio and Video Content, Flash Animations etc..
+
+- To Get list of all plugins installed in a browser
+
+<script>
+    function f1(){
+        for(var i=0; i<navigator.plugins.length; i++) {
+            document.write(navigator.plugins[i].name + "<br>");
+        }
+    }
+    f1();
+</script>
+
+- To Verify plugin available or not
+
+<script>
+    function f1(){
+       if(navigator.plugins['Chrome PDF Viewer']==undefined) {
+           alert("You Can't Open PDF Documents");
+           alert("Install");
+           location.href="http://www.adobe.com/downloads";
+       } else {
+           alert("You can watch PDF Documents");
+       }
+    }
+    f1();
+</script>
+<body>
+    <a href="../Resources/cssdemo.pdf">
+     CSS Tutorial PDF
+    </a>
+</body>
+
+Ex: MIME Type
+
+<script>
+    function f1(){
+        for(var i=0; i<navigator.mimeTypes.length; i++) {
+            document.write(navigator.mimeTypes[i].type + "<br>");
+        }
+    }
+    f1();
+</script>
+
+FAQ: How to verify JavaScript status on Browser? JavaScript enabled or not?
+A. You can verify JavaScript by using HTML element
+	<noscript>
+Syntax:
+<body>
+ <noscript>
+            Please Enable JavaScript on your browser.
+            This message is displayed only when JS is not working.
+ </noscript>
+</body>
+	               History Object
+- It is used to access the browser history details
+
+Member		Description
+========================================
+length	 Total count of pages in browser history.
+back()	 To goto Previous Page in history
+forward()	 To goto Next Page in history
+go()	 To goto specific page in history.
+	 go('page.html');
+	 go(2);         // 2 pages forward
+	 go(-2);	      // 2 pages back
+
+Ex:
+<script>
+    function f1(){
+        document.write("Total no of Pages in History : " + history.length);
+    }
+    f1();
+</script>
+<body>
+    <button onclick="history.go(-1)">Back</button>
+</body>
