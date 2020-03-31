@@ -1,0 +1,112 @@
+		JQuery
+- JQuery is a JavaScript Library.
+- JQuery is a fast, small and feature-rich JavaScript Library.
+- It is a collection of JavaScript functions.
+- It is lightweight
+- JQuery means "write less and do more".
+- Introduced in Early 2006 by "John Resign".
+- JQuery is written in JavaScript.
+- JQuery simplifies AJAX calls and DOM Manipulations.
+- Simplifies CSS animations and Event Handling.
+- Latest version of JQuery till date in "3.4.1" May 1, 2019.
+
+Features of JQuery:
+- HTML Manipulation
+- DOM Manipulation
+- DOM element selection
+- CSS Manipulation
+- Effects and Animations
+- Utilities with pre-defined functionality.
+- Ajax for "Asynchronous Techniques"
+- HTML events
+- JSON Parsing [converting]
+- Extensibility by using plug-ins
+- It is very fast and extensibile
+- It handle complex functionalities by writing very less code.
+- It can reduce browser compatibility issues.
+- It supports feature for modern browsers.
+
+Versions:
+- 1.0   in 26 August  2006   [First]
+- 3.4.1  May 1, 2019             [Lastest]
+
+Install JQuery for your Project
+=========================
+1. Open your project in command prompt or in Terminal [Ctrl + ` ]   backtick
+
+2. Install from NPM
+	C:\Ishop>npm install jquery
+
+	node_modules
+	|_JQuery
+	   |_dist
+	      |_jquery.js  [core library for jquery]
+
+3. Link the library in your HTML page
+
+    <head>
+      <script src="node_modules/jquery/dist/jquery.js">
+      </script>
+    </head>
+
+4. Invoke the library and make it active   [ $() ]
+
+Syntax:
+	$(document).ready(function(){
+
+                   });
+		or
+	 $().ready(function(){
+
+	  });
+		or
+	  $(function(){
+
+	    });
+
+Ex:
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JQuery Demo</title>
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("h2").text("Welcome to JQuery");
+            });
+        </script>
+    </head>
+    <body>
+        <h2 align="center"></h2>
+    </body>
+</html>
+
+Ex:
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JQuery Demo</title>
+        <style>
+            div {
+                width: 300px;
+                height: 50px;
+                margin: auto;
+                margin-top: 20px;
+                box-shadow: 0px 3px 4px darkcyan;
+                border:2px solid darkcyan;
+                text-align: center;
+                font-size: 2em;
+            }
+        </style>
+        <script src="../node_modules/jquery/dist/jquery.js">
+        </script>
+        <script>
+            $(function(){
+                $("div").text("Welcome to JQuery");
+            })
+        </script>
+    </head>
+    <body>
+        <div></div>
+    </body>
+</html>
