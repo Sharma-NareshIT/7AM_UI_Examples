@@ -1,0 +1,227 @@
+	         JQuery Selectors
+	        ===============
+- To Select and manipulate HTML DOM elements.
+- Selector can access any HTML element and can dynamically control the element.
+- Different types of JQuery Selectors
+
+Selector	 Syntax	Description
+===========================================
+*	$("*")       It is used to select all elements
+
+#id	$("#id")   It is used to select any element
+		based on its ID.
+
+.class	$(".class")  It is used to select any element
+		by using its  class name.
+
+element	$("tag")	  It is used to select any element
+		  by using its tag name.
+
+multiple	$("h2,div,p")  It will select the specified.
+
+Ex:
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JQuery Demo</title>
+        <style>
+            div {
+                width: 400px;
+                height: 50px;
+                margin: auto;
+                margin-top: 20px;
+                box-shadow: 0px 3px 4px darkcyan;
+                border:2px solid darkcyan;
+                text-align: center;
+                font-size: 2em;
+            }
+            p {
+                text-align: center;
+                background-color: yellow;
+            }
+            h2 {
+                text-align: center;
+                color: red;
+            }
+        </style>
+        <script src="../node_modules/jquery/dist/jquery.js">
+        </script>
+        <script>
+            $(function(){
+                $("div").text("Accessed by using Tag Name");
+                $("#para").text("Accessed by Id");
+                $(".heading").text("Accessed by class name");
+            })
+        </script>
+    </head>
+    <body>
+        <div></div>
+        <p id="para"></p>
+        <h2 class="heading"></h2>
+    </body>
+</html>
+
+Selector	Syntax	Description
+===========================================
+:first	#("li:first")  It will access the first li element.
+:last	#("li:last")   It will access the last li element.
+:even	#("tr:even") It will access even occurance.
+:odd	#("tr:odd")   It will access odd occurance.
+
+Ex:
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JQuery Demo</title>
+        <style>
+            div {
+                width: 400px;
+                height: 50px;
+                margin: auto;
+                margin-top: 20px;
+                box-shadow: 0px 3px 4px darkcyan;
+                border:2px solid darkcyan;
+                text-align: center;
+                font-size: 2em;
+            }
+            p {
+                text-align: center;
+                background-color: yellow;
+            }
+            h2 {
+                text-align: center;
+                color: red;
+            }
+        </style>
+        <script src="../node_modules/jquery/dist/jquery.js">
+        </script>
+        <script>
+            $(function(){
+                $("div").text("Accessed by using Tag Name");
+                $("#para").text("Accessed by Id");
+                $(".heading").text("Accessed by class name");
+                $("li:first").css("color","red");
+                $("li:last").css("color","red");
+                $("li:odd").css("background-color","yellow");
+                $("li:even").css("background-color","green");
+            })
+        </script>
+    </head>
+    <body>
+        <ol>
+            <li>Item-1</li>
+            <li>Item-2</li>
+            <li>Item-3</li>
+            <li>Item-4</li>
+            <li>Item-5</li>
+        </ol>
+        <div></div>
+        <p id="para"></p>
+        <h2 class="heading"></h2>
+    </body>
+</html>
+
+	       JQuery HTML and CSS
+- JQuery provides a set of functions with are used to manipulate HTML and CSS.
+
+1. html() : It is similar to innerHTML of javascript.
+	It allows text with formats.
+
+2. text()  : It is similar to innerText of JS. It is plain
+	text without formats.
+
+Ex:
+<head>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            $("#p1").html(`<b><i>Text with Format</b></i>`);
+            $("#p2").text(`<b><i>Text without format</b></i>`);
+        })
+    </script>
+</head>
+<body>
+    <p id="p1"></p>
+    <p id="p2"></p>
+</body>
+
+3. val()  : It is used to set or get a value present in
+               element. like textbox, checkbox, radio, select
+
+Ex:
+<head>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            $("#txtName").val("John");
+        })
+    </script>
+</head>
+<body>
+    <dl>
+        <dt>User Name</dt>
+        <dd><input type="text" id="txtName"></dd>
+    </dl>
+</body>
+
+4. css() :  It is used to apply css styles for any HTML
+	element.
+  Single Style
+                $("div").css("property", "value");
+  Multiple Styles
+                $("div").css({"property":"value", "property":"value"..});
+
+Ex:
+<head>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            $("div").html(`Welcome to JQuery CSS`);
+            $("div").css({"background-color":"yellow","color":"red","text-align":"center"});
+        })
+    </script>
+</head>
+<body>
+    <div>
+
+    </div>
+</body>
+
+5. before()  ]   It is used to add content before and 
+6. after()     ]   after the current element.
+
+Ex:
+<head>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            $("#p1").before(`<p>New Para before current paragraph</p>`);
+            $("#p1").after(`<h2>Heading after Paragraph</h2>`);
+        })
+    </script>
+</head>
+<body>
+    <p id="p1">Current Paragraph</p>
+</body>
+
+7.  prepend() : It adds new content as prefix with out
+	       deleting exisiting.
+8.  append() :   It adds new content as suffix without
+	        deleting exisiting.
+
+Ex:
+<head>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            $("#p1").before(`<p>New Para before current paragraph</p>`);
+            $("#p1").after(`<h2>Heading after Paragraph</h2>`);
+            $("#p2").prepend("Welcome to ");
+            $("#p2").append("-I Technologies");
+        })
+    </script>
+</head>
+<body>
+    <p id="p1">Current Paragraph</p>
+    <p id="p2">Naresh</p>
+</body>
