@@ -1,0 +1,110 @@
+8. appendTo() : It is used to append any content to a                       specific element. The content can be
+	    text or a template. 
+	     A template is combination of HTML 
+	    and Logic.
+
+Syntax:
+   $(`<markup> ${expression} </markup>`).appendTo("element");
+
+Ex:
+<head>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+           var cities = ["Delhi","Hyd","Chennai"];
+           var products = [
+               {Name: "TV", Price: 45000.53},
+               {Name: "Nike Shoe", Price: 2000.43}
+           ];
+           for(var item of cities) {
+              $(`<li>${item}</li>`).appendTo("#cities");
+           }
+           for(var product of products) {
+               $(`<tr><td>${product.Name}</td><td>${product.Price}</td></tr>`).appendTo("#tbody");
+           }
+        })
+    </script>
+</head>
+<body>
+    <h2>Cities List</h2>
+    <ol id="cities">
+
+    </ol>
+    <table width="400" border="1">
+        <thead>
+            <th>Name</th>
+            <th>Price</th>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+</body>
+
+9. $.each()  : It is an iterator, which is used to read values and keys from a collection.
+
+   Syntax:
+       $.each(collection, function(key, value) {
+
+        })
+
+Ex:
+<head>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+           var cities = ["Delhi","Hyd","Chennai"];
+           var products = [
+               {Name: "TV", Price: 45000.53},
+               {Name: "Nike Shoe", Price: 2000.43}
+           ];
+           $.each(cities, function(key, value){
+               $(`<li>[${key}] ${value}</li>`).appendTo("#cities");
+           });
+           $.each(products, function(key, value){
+               $(`<tr><td>${value.Name}</td><td>${value.Price}</td></tr>`).appendTo("#tbody");
+           })
+        })
+    </script>
+</head>
+<body>
+    <h2>Cities List</h2>
+    <ol id="cities">
+
+    </ol>
+    <table width="400" border="1">
+        <thead>
+            <th>Name</th>
+            <th>Price</th>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+</body>
+
+Ex: Nested Loops
+
+<head>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+           var data = [
+               {Category: "Electronics", Products: ["TV", "Mobile"] },
+               {Category: "Shoes", Products: ["Nike Casuals", "Lee Cooper Boot"]}
+           ];
+           $.each(data, function(key, value){
+                $(`<li id="categories">${value.Category}</li>`).appendTo("#shop");
+                $.each(value.Products, function(innerKey, innerValue){
+                    $(`<ul><li>${innerValue}</li></ul>`).appendTo("#categories");
+                })
+           })
+        })
+    </script>
+</head>
+<body>
+   <h2>Shopping Categories</h2>
+   <ol id="shop">
+
+   </ol>
+</body>
