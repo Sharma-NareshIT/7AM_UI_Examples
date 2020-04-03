@@ -1,0 +1,154 @@
+Ex: Nested Iterations
+
+<head>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+           var data = [
+               {Category: "Electronics", Products: ["TV", "Mobile"] },
+               {Category: "Shoes", Products: ["Nike Casuals", "Lee Cooper Boot"]}
+           ];
+           $.each(data, function(key, value){
+            $(`<li>${value.Category}</li>`).appendTo("#shop");
+                $.each(value.Products, function(innerKey, innerValue){
+                    $(`<ul><li>${innerValue}</li></ul>`).appendTo("#shop");
+                })
+           })
+        })
+    </script>
+</head>
+<body>
+   <h2>Shopping Categories</h2>
+   <ol id="shop">
+   </ol>
+</body>
+
+10. remove()   : It is used to remove the selected elements from DOM. It will remove the element but not data and its events.
+
+11. detach()  :  It is used to remove the selected element including all child nodes, but data will be there.
+
+12. empty() : It removes only data without removing the element.
+
+13. attr()   :  It is used to dymamically control any attribute of element.
+
+  $("#pic").attr("attribute", "value");
+  $("#pic").attr({"attribute1":"value", "attribute2":"value"})
+
+Ex:
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script>
+            var product = {
+                Name : "Samsung TV",
+                Price: 45000.53,
+                Photo: "../Images/tv.jpg"
+            };
+            $(function(){
+                $("#name").html(product.Name);
+                $("#price").html(product.Price);
+                $("#pic").attr({"src":product.Photo, "border":"2"});
+            })
+        </script>
+    </head>
+    <body>
+        <h2>Product Details</h2>
+        <dl>
+            <dt>Name</dt>
+            <dd id="name"></dd>
+            <dt>Price</dt>
+            <dd id="price"></dd>
+            <dt>Preview</dt>
+            <dd>
+                <img id="pic" width="100" height="100">
+            </dd>
+        </dl>
+    </body>
+</html>
+
+Ex:
+<head>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            var cities = ["Delhi","Hyd","Chennai"];
+            $.each(cities, function(key, value){
+                $("#cities").append(`<option>${value}</option>`);
+            })
+        })
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Select City</legend>
+        <select id="cities">
+
+        </select>
+    </fieldset>
+</body>
+
+	           JQuery Events
+	           ---------------------
+- JQuery uses all JavaScript
+- Mouse Events
+	mouseover()
+	mousedown()
+	mouseup()
+	mouseout()
+	mousemove()
+- Key Events
+	keyup()
+	keypress()
+	keydown()
+- Miscelaneous Events
+	click()
+	focus()	
+	blur()
+	change()
+	select()
+	submit()
+	load()
+	contextmenu()
+	dblclick()
+
+Syntax:
+    $("button").click(function(event){
+
+     })
+    $("select").change(function(event){
+
+     })
+
+Ex:
+<head>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            $("#btnShow").click(function(){
+                $("#msg").html("JQuery Events");
+            });
+            $("#lstCities").change(function(){
+                var city = $("#lstCities").val();
+                $("#city").html(`Selected City : ${city}`);
+            });
+            $("#pic").mousemove(function(event){
+                $("#status").html(`x=${event.clientX} y=${event.clientY}`);
+            })
+        })
+    </script>
+</head>
+<body>
+    <button id="btnShow">Show Message</button>
+    <h2 id="msg"></h2>
+    <select id="lstCities">
+        <option>Delhi</option>
+        <option>Hyderabad</option>
+        <option>Chennai</option>
+    </select>
+    <h2 id="city"></h2>
+    <img id="pic" src="../Images/tv.jpg" width="100" height="100">
+    <h2 id="status"></h2>
+</body>
+
+	           JQuery Effects
