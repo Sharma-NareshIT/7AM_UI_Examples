@@ -1,0 +1,205 @@
+JQuery HTML and CSS
+JQuery Events
+	          JQuery Effects
+- A set of functions that can handle animation and effects for HTML elements.
+- The functions are
+1. hide()
+2. show()
+3. toggle()
+4. fadeIn()
+5. fadeOut()
+6. fadeToggle()
+7. fadeTo()
+8. slideDown()
+9. slideUp()
+10. slideToggle()
+11. animate()
+12. delay()
+
+Ex: show() , hide(), toggle()
+      $(selector).hide()
+      $(selector).hide(duration, callback)
+      $(selector).hide(duration, easing, callback)
+      $(selector).show(duration, easing, callback)
+      $(selector).toggle(duration, easing, callback)
+
+   duration - Defined in milli seconds to display
+	   animation. or you can also define
+	   the effect as "fast", "slow".
+
+Ex:
+<head>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            $("#show").click(function(){
+                $("#pic").show(1000);
+            })
+            $("#hide").click(function(){
+                $("#pic").hide(2000);
+            })
+            $("#toggle").click(function(){
+                $("#pic").toggle('slow', function(){
+                   alert("Animation Finish");
+                });
+            })
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <button id="show">Show</button>
+        <button id="hide">Hide</button>
+        <button id="toggle">Toggle</button>
+        <br>
+        <img id="pic" src="/Images/tv.jpg" width="100" height="100">
+    
+    </div>
+</body>
+
+
+Ex: fadeIn(), fadeOut(), fadeToggle()
+
+<head>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            $("#in").click(function(){
+                $("#pic").fadeIn(1000);
+            })
+            $("#out").click(function(){
+                $("#pic").fadeOut(2000);
+            })
+            $("#toggle").click(function(){
+                $("#pic").fadeToggle('slow', function(){
+                   alert("Animation Finish");
+                });
+            })
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <button id="in">Fade In</button>
+        <button id="out">Fade out</button>
+        <button id="toggle">Toggle</button>
+        <br>
+        <img id="pic" src="/Images/tv.jpg" width="100" height="100">
+    
+    </div>
+</body>
+
+Ex: animate()  for defining your own css effects.
+
+<head>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            $("#animate").click(function(){
+                $("#box").animate({
+                    left:'200px',
+                    height:'200px',
+                    width:'200px',
+                    opacity:'0.5'
+                });
+            })
+            $("#reset").click(function(){
+                $("#box").animate({
+                    left:'0px',
+                    height:'100px',
+                    width:'100px',
+                    opacity:'1.0'
+                });
+            })
+        })
+    </script>
+</head>
+<body>
+    <button id="animate">Animate</button>
+    <button id="reset">Reset</button>
+    <br><br>
+    <img src="../Images/tv.jpg" id="box" style="width: 100px; height: 100px; position: absolute;">
+
+</body>
+
+EX: delay() is used to delay the animation
+
+<head>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            $("button").click(function(){
+                $("#div1").delay('fast').fadeIn();
+                $("#div2").delay('slow').fadeIn();
+                $("#div3").delay('1000').fadeIn();
+                $("#div4").delay('2000').fadeIn();
+            })
+        })
+    </script>
+    <style>
+        div {
+            float: left;
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <button>Animate Delay</button>
+    <br><br>
+    <div id="div1" style="width:100px; height: 100px; display: none;background-color: red;"></div> 
+    <div id="div2" style="width:100px; height: 100px; display: none;background-color: green;"></div> 
+    <div id="div3" style="width:100px; height: 100px; display: none;background-color: blue;"></div> 
+    <div id="div4" style="width:100px; height: 100px; display: none;background-color: darkcyan;"></div>
+    
+</body>
+
+	          JQuery UI
+- It provides pre-defined interface interactions, effects, widgets and themes built on JQuery javascript library.
+- It provides templates which you can implement in your application without writing much logic.
+- Jquery UI provides
+	a) Interactions
+	b) Widgets
+	c) Effects
+	d) Utilities
+
+Install JQuery UI
+==============
+1. Visit  "https://jqueryui.com/"
+2. Goto Download category
+3. In Quick Downloads - Select "Stable"
+4. Open and Extract the downloaded ZIP folder
+5. Copy all files from folder
+6. Goto your project and create a new folder
+	"jquery-ui"
+7. paste all copies jquery library files.
+
+Note: In order to use Jquery UI library you have to plugin the JQuery base library.
+
+JQuery UI Interactions
+==================
+1. Draggable
+2. Droppable
+3. Resizable
+4. Selectable
+5. Sortable
+
+Ex:
+<head>
+    <link rel="stylesheet" href="../node_modules/jquery-ui/jquery-ui.css">
+    <style>
+        img:hover {
+            cursor:move;
+        }
+    </style>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-ui/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $("#pic").resizable().draggable();
+        })
+    </script>
+</head>
+<body>
+  <img id="pic" src="../Images/tv.jpg" width="100" height="100">
+</body>
+
