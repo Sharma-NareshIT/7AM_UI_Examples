@@ -1,0 +1,131 @@
+	       JQuery Interactions
+1. Draggable
+2. Droppable
+3. Resizable
+4. Selectable
+5. Sortable
+
+Ex:
+<head>
+    <link rel="stylesheet" href="../node_modules/jquery-ui/jquery-ui.css">
+    
+    <style>
+        #courses.ui-selecting {
+            background-color: yellow;
+        }
+        #courses.ui-selected {
+            background-color: tomato;
+            color: white;
+        }
+    </style>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-ui/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $("#tv").draggable();
+            $("#shoe").resizable();
+            $("#courses").selectable();
+            $("#items").sortable();
+        })
+    </script>
+</head>
+<body>
+    <dl>
+        <dt>Draggable</dt>
+        <dd>
+            <img id="tv" src="../Images/tv.jpg" width="50" height="50">
+        </dd>
+        <dt>Resizable</dt>
+        <dd>
+            <img id="shoe" src="../Images/shoe.jpg" width="50" height="50">
+        </dd>
+        <dt>Selectable</dt>
+        <dd>
+            <ol id="courses">
+                <li class="ui-widget-content" >HTML</li>
+                <li class="ui-widget-content">CSS</li>
+                <li class="ui-widget-content">JavaScript</li>
+            </ol>
+        </dd>
+        <dt>Sortable</dt>
+        <dd>
+            <ul id="items">
+                <li>Item-1</li>
+                <li>Item-2</li>
+                <li>Item-3</li>
+            </ul>
+        </dd>
+    </dl>
+</body>
+
+	       JQuery Widgets
+- Widget is a gadget for web application.
+- It is template with combination of CSS, HTML , and JQuery.
+- You can apply by using simple functions.
+- Designing widgets requires a specific format to follow.
+
+1. Accordion: Displays collapsible content panels for presenting information in a limited amount of space.
+
+
+Ex:
+<head>
+    <link rel="stylesheet" href="../node_modules/jquery-ui/jquery-ui.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-ui/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $("#topics").accordion();
+        })
+    </script>
+</head>
+<body>
+    <div id="topics">
+        <h2>HTML Tutorial</h2>
+        <div>
+            <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. </p>
+        </div>
+        <h2>JavaScript Basics</h2>
+        <div>
+            <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. </p>
+        </div>
+        <h2>CSS Examples</h2>
+        <div>
+            <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. </p>
+        </div>
+    </div>
+</body>
+
+2. AutoComplete : Enables users to quickly find and select from pre-populated list of value as they type.
+
+Ex:
+<head>
+    <link rel="stylesheet" href="../node_modules/jquery-ui/jquery-ui.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-ui/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            var topics= [
+                "HTML Basics",
+                "HTML Tutorial",
+                "JQuery Examples",
+                "HTML Examples",
+                "JQuery Tutorial"
+            ];
+            $("#search").autocomplete({
+                source: topics
+            })
+        })
+    </script>
+</head>
+<body>
+    Search Topics :
+    <input type="text" id="search">
+</body>
+
+
+
+
+
+
+
+
