@@ -1,0 +1,183 @@
+JQuery Widgets:
+1. Accordion
+2. AutoComplete
+3. Checkboxradio : It is a widget used for radio and checkboxes in a form. They have a predefined selection and visual effect with built in CSS and Jquery.
+
+Ex:
+<head>
+    <link rel="stylesheet" href="../node_modules/jquery-ui/jquery-ui.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-ui/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $("input").checkboxradio();
+        })
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Choose Payment Mode</legend>       
+        <input type="radio" name="pay" id="credit">
+        <label for="credit">Credit Card</label>
+
+        <input type="radio" name="pay" id="cash">
+        <label for="cash">Cash</label>
+    </fieldset>
+    <fieldset>
+        <legend>Choose Courses</legend>
+        <input type="checkbox" name="java" id="java">
+        <label for="java">JAVA</label>
+        <input type="checkbox" name=".net" id=".net">
+        <label for=".net">.NET</label>
+    </fieldset>
+</body>
+
+5. DatePicker : It shows a calendar and allows the user to select a date and input date into control. It can work across all types of browsers.
+
+Ex:
+<head>
+    <link rel="stylesheet" href="../node_modules/jquery-ui/jquery-ui.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-ui/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $("#txtDob").datepicker();
+        })
+    </script>
+</head>
+<body>
+    Date of Birth:
+    <input type="text" id="txtDob">
+</body>
+
+6. Dialog : It is used to display any content in a dialog box, which client can open and close dynamically.
+
+Ex:
+<head>
+    <link rel="stylesheet" href="../node_modules/jquery-ui/jquery-ui.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-ui/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $("#show").click(function(){
+                $("#login").dialog();
+            })
+        })
+    </script>
+</head>
+<body>
+    <button id="show">Show Login</button>
+    <br>
+    <div style="display: none;" id="login" title="User Login">
+        <dl>
+            <dt>User Name</dt>
+            <dd><input type="text"></dd>
+            <dt>Password</dt>
+            <dd><input type="password"></dd>
+        </dl>
+        <button>Login</button>
+    </div>
+</body>
+
+7. Menu: It is used to display a menu bar that can show categories and items in categories dynamically.
+
+Ex:
+<head>
+    <link rel="stylesheet" href="../node_modules/jquery-ui/jquery-ui.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-ui/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $("#menuBar").menu();
+        })
+    </script>
+</head>
+<body>
+    <div style="width: 200px; height: 300px; border:2px solid darkcyan">
+        <ul id="menuBar">
+            <li><div>Home</div></li>
+            <li><div>Electronics</div>
+                <ul>
+                    <li><div>Mobiles</div></li>
+                    <li><div>Televisions</div></li>
+                    <li><div>Watches</div></li>
+                </ul>
+            </li>
+            <li>
+                <div>Shoes</div>
+                <ul>
+                    <li><div>Casuals</div></li>
+                    <li><div>Sneakers</div></li>
+                </ul>
+            </li>
+            <li><div>Contact</div></li>
+        </ul>
+    </div>
+</body>
+
+8. Select Menu : It is mostly used for displaying a dropdown menu with pre-defined effects.
+
+Ex:
+<head>
+    <link rel="stylesheet" href="../node_modules/jquery-ui/jquery-ui.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-ui/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $("#lstCities").selectmenu();
+        })
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Select Your City</legend>
+        <select name="lstCities" id="lstCities">
+            <option>Choose City</option>
+            <option>Delhi</option>
+            <option>Hyderabad</option>
+            <option>Chennai</option>
+        </select>
+    </fieldset>
+    <fieldset>
+        <legend>Select Product</legend>
+        <select>
+            <option>TV</option>
+            <option>Mobile</option>
+        </select>
+    </fieldset>
+</body>
+
+9. Tabs : It is used for intra document navigation. It will design a tabed menu.
+
+Ex:
+<head>
+    <link rel="stylesheet" href="../node_modules/jquery-ui/jquery-ui.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-ui/jquery-ui.js"></script>
+    <script>
+        $(function(){
+            $("#navigation").tabs();
+        })
+    </script>
+</head>
+<body>
+    <div id="navigation">
+        <ul>
+            <li><a href="#html">HTML</a></li>
+            <li><a href="#css">CSS</a></li>
+            <li><a href="#js">JavaScript</a></li>
+        </ul>
+        <div id="html">
+            <h2>HTML Tutorial</h2>
+            <p>something about HTML..</p>
+        </div>
+        <div id="css">
+            <h2>CSS Examples</h2>
+            <p>something about CSS examples</p>
+        </div>
+        <div id="js">
+            <h2>JavaScript Tutorial</h2>
+            <p>something about JavaScript</p>
+        </div>
+    </div>
+</body>
