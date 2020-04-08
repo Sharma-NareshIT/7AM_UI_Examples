@@ -1,0 +1,97 @@
+	              JQuery Ajax
+- Ajax is Asynchronous JavaScript and XML
+- Async is a technique used to handle multiple tasks simultaneously at the same time i.e without locking any task it can process other tasks.
+- In Synchronous technique other tasked are locked when any one task is being performed.
+- JQuery provide a set of Ajax functions and methods that allow us to load data into page without reloading the page.
+- Ajax Enable Partial Post Back mechanism.
+- Only Specific portion of page is loaded or posted without refreshing the complete page.
+- The various Ajax methods provided by JQuery are
+
+1. ajaxComplete()
+2. ajaxError()
+3. ajaxSend()
+4. ajaxStart()
+5. ajaxStop()
+6. ajaxSuccess()
+7. jquery.get()
+8. jquery.getJson()
+9. jquery.post()
+10. load() etc..
+
+
+.getJson() :  Loads JSON-encoded data from the server using Http GET request.
+
+Syntax:
+     .getJson(url, function(data) {
+
+    })
+
+Ex:
+1. Create a new folder by name "data"
+2. Add a new file into data folder by name
+	"products.json"
+[
+    {
+        "Name": "Samsung TV",
+        "Price": 34000.44,
+        "IsInStock": true
+    },
+    {
+        "Name":"Nike Casuals",
+        "Price": 2000.44,
+        "IsInStock":false
+    }
+]
+
+3. Add a new HTML file
+	  "Demo.html"
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script>
+            $(function(){
+                $("button").click(function(){
+                    var products = [];
+                    $.getJSON("../data/products.json", function(data){
+                        products = data;
+                        $.each(products, function(key, value){
+                        $(`<tr><td>${value.Name}</td><td>${value.Price}</td><td>${(value.IsInStock)==true?"Available":"Out of Stock"}</td></tr>`).appendTo("#tableBody");
+                        })
+                    })
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <h2>Products Data</h2>
+            <button>Show Data</button>
+            <div>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Stock Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
+
+Note: Ajax examples you can run only from WebServer. [Open with Live Server]
+
+$.getJson("url", function(){
+  })
+  .done(function() { })
+  .fail(function(){ })
+  .always(function{})
+
+	          JQuery Bootstrap
