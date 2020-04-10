@@ -1,0 +1,137 @@
+$.getJSON()
+  .done(function(){ })
+  .fail(function(){})
+  .always(function(){})
+
+done()	→ Executes when request is success
+fail()	→ Executes when request failed
+always()	→ Executes everytime i.e on succes and
+	    on fail.
+
+Ex:
+<head>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            $("button").click(function(){
+                $.getJSON("../data/products.json")
+                .done(function(data){
+                    $.each(data, function(key, value){
+                        $(`<tr><td>${value.Name}</td><td>${value.Price}</td><td>${value.IsInStock}</td></tr>`).appendTo("#tbody");
+                    })
+                })
+                .fail(function(){
+                    alert("Something went wrong..");
+                })
+                .always(function(){
+                    alert("End of Program");
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <button>Get Data</button>
+    <br><br>
+    <div>
+        <table width="300" border="1">
+            <thead>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+            </thead>
+            <tbody id="tbody">
+                
+            </tbody>
+        </table>
+    </div>
+</body>
+
+Ajax Request Status:
+- Ajax calls in a page will be processing by using the following methods.
+- The status of ajax is shown by using these methods.
+
+.ajaxComplete()
+.ajaxError()
+.ajaxStart()
+.ajaxStop()
+.ajaxSuccess()
+.ajaxError()
+
+Syntax:
+  $(function() {
+
+   }) 
+   .ajaxComplete(function(){ })
+   .ajaxSuccess(function(){ })
+
+Ex:
+<head>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script>
+        $(function(){
+            $("button").click(function(){
+                $.getJSON("../data/products.json")
+                .done(function(data){
+                    $.each(data, function(key, value){
+                        $(`<tr><td>${value.Name}</td><td>${value.Price}</td><td>${value.IsInStock}</td></tr>`).appendTo("#tbody");
+                    })
+                })
+                .fail(function(){
+                    alert("Something went wrong..");
+                })
+            })
+        })
+        .ajaxStart(function(){
+            alert("Ajax Request Started");
+        })
+        .ajaxSuccess(function(){
+            alert("Ajax Request Processed..");
+        })
+        .ajaxComplete(function(){
+            alert("Ajax Request Completed");
+        })
+        
+    </script>
+</head>
+<body>
+    <button>Get Data</button>
+    <br><br>
+    <div>
+        <table width="300" border="1">
+            <thead>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+            </thead>
+            <tbody id="tbody">
+                
+            </tbody>
+        </table>
+    </div>
+</body>
+
+	           JQuery Bootstrap
+- Install Boostrap
+- Install JQuery
+
+JQuery Bootstrap provides a set of Templates that makes the presentation more interactive and responsive.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
