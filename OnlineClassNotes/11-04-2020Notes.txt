@@ -1,0 +1,135 @@
+	          JQuery Bootstrap
+1. Alert : It is used for displaying an alert box, which you can dynamically control.
+
+  Class		Description
+  ---------------------------------------------		
+  alert	 	It defines an alert box for a 
+		container.
+  alert-primary	 
+  alert-secondary	Defines various colors for alert.
+  alert-success
+  alert-danger
+  alert-warning
+  alert-info
+
+  alert-link		It is to display a link in alert box.
+		it changes according to base
+		color.
+  alert-heading	It is used for headings in alert.
+  
+  alert-dismissible	It specifies that alert can be
+		closed dynamically. It requires
+		"data-dismiss" to close.
+
+   JQuery Attribute	  Description
+   ----------------------------------------------------------------------
+   role		It defines the type of element.
+   data-dismiss	It is used to close alert or any
+		element.
+
+   JQuery Classes
+   -----------------------------------------------------------------------
+    .fade		It gives fading effect
+    .show		It give show effect
+    .close		It is to define close style.
+
+
+Ex:
+<head>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+  <script src="../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script>
+     $(function(){
+       $(".alert").hide();
+       $("#btnDelete").click(function(){
+         $(".alert").show(3000);
+       })
+     })
+  </script>
+</head>
+<body>
+  <div class="container-fluid">
+    <h2>Alert Demo</h2>
+    <button id="btnDelete" class="btn btn-danger">Delete</button>
+    <div class="alert alert-danger alert-dismissible show fade" role="alert">
+       <h2 class="alert-heading">Are you sure want to Delete?</h2>
+       <p>Record will be deleted</p>
+       <p><a href="#" class="alert-link">Help?</a></p>
+       <button type="button" class="close" data-dismiss="alert">X</button>
+    </div>
+  </div>
+</body>
+
+
+		Carousel
+		-------------
+A slideshow component for cycling through element- Images or slide of text.
+
+Class		Description
+==========================================
+ carousel		It is to display a collection of 
+		slides.
+ slide		It is used to defining slide 	 	animation.
+ carousel-inner	To group all slides.
+ carousel-item	To define a slide.
+ active		To make a slide active to start
+		with.
+ d-block		]  TO set slide size to fit the
+ w-100		]   window.
+
+ JQueryAttribute	Description
+ ========================================
+ data-ride	       It defines the carousel to start.
+ data-slide       It specifies to previous or next.
+ data-slide-to  It specifies to any slide number [index]
+ data-target     It specifies carousel id to use on click.
+
+
+	          Carousel with Controls
+	          ===================
+
+Class		Description
+_____________________________________________
+carousel-control-prev
+carousel-control-next
+carousel-control-prev-icon
+carousel-control-next-icon
+
+Ex:
+<head>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body class="container-fluid">
+    <div id="banners" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#banners" data-slide-to="0" class="active"></li>
+            <li data-target="#banners" data-slide-to="1"></li>
+            <li data-target="#banners" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../Images/slide1.PNG" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="../Images/slide2.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item">
+                <img src="../Images/slide3.PNG" class="d-block w-100">
+            </div>
+        </div>
+        <!--Controls-->
+        <a class="carousel-control-prev" href="#banners" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#banners" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+        
+    </div>
+</body>
+
+
+
