@@ -1,0 +1,131 @@
+Carousel Transition:
+- carousel slide
+- carousel-fade
+
+Syntax:
+<div id="banners" class="carousel slide carousel-fade" data-ride="carousel">
+
+Carousel Interval: Time interval for slide
+- data-interval="milliseconds"  [in carousel-item]
+
+data-ride :  It is used to start carousel automatically.
+
+
+Ex:
+<head>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body class="container-fluid">
+    <div id="banners" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#banners" data-slide-to="0" class="active"></li>
+            <li data-target="#banners" data-slide-to="1"></li>
+            <li data-target="#banners" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-interval="4000">
+                <img src="../Images/slide1.PNG" class="d-block w-100">
+            </div>
+            <div class="carousel-item"  data-interval="2000">
+                <img src="../Images/slide2.jpg" class="d-block w-100">
+            </div>
+            <div class="carousel-item"  data-interval="4000">
+                <img src="../Images/slide3.PNG" class="d-block w-100">
+            </div>
+        </div>
+        <!--Controls-->
+        <a class="carousel-control-prev" href="#banners" data-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#banners" data-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </a>
+        
+    </div>
+</body>
+
+	      Bootstrap Collapse
+- It is used to display and hide content dynamically
+- The classes used are
+	a) .collapse
+	b) .collapsing
+	c) .collapse.show
+- JQuery Attribute are
+	a) data-target  : which content to collapse
+	b) data-toggle : specifies actions on click
+
+data-target is used for buttons.
+href  is used for links.
+
+Syntax:
+<a href="#id" data-toggle="collapse">
+<button data-target="#id" data-toggle="collapse">
+
+
+Ex:
+<head>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body class="container-fluid">
+    <div class="form-group form-inline">
+        <a class="btn btn-link" data-toggle="collapse" href="#js">Link Click</a>
+       <button type="button" data-toggle="collapse" data-target="#js" class="btn btn-primary">Show / Hide</button>
+    </div>
+    <div id="js" class="collapse form-group">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h2>JavaScript</h2>
+            </div>
+            <div class="card-body">
+                <p> something about javascript ...</p>
+            </div>
+        </div>
+    </div>
+</body>
+	            Bootstrap DropDown
+- It is only used for create a dropdown for navigation.
+- Don't use as alternative for <select>
+- While designing a form always use <select>
+
+Classes:
+1. dropdown-menu
+2. dropdown-item
+3. dropdown-divider
+4. dropdown-toggle-split
+5. dropdown-toggle
+6. dropdown-item-text
+7. active
+8. disabled
+
+JQuery Attribute
+1. data-toggle
+
+Note: To use dropdown you need a bootstrap.bundle.js library
+
+
+Ex:
+<head>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+<body class="container-fluid">
+    <h2>Navigation</h2>
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" id="dropdownbutton" data-toggle="dropdown">
+            Offered Courses
+        </button>
+        <div class="dropdown-menu">
+            <a href="#" class="dropdown-item">HTML</a>
+            <a href="#" class="dropdown-item active">CSS</a>
+            <a href="#" class="dropdown-item disabled">JavaScript</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item">Help</a>
+        </div>
+    </div>
+</body>
+
