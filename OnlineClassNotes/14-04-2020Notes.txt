@@ -1,0 +1,104 @@
+		Bootstrap Modal
+- It is similar to a dialog in JQuery UI.
+- It shows a dialog you can open and close dynamically.
+
+Classes:
+1. modal
+2. modal-dialog
+3. modal-content
+4. modal-header
+5. modal-title
+6. modal-body
+7. modal-footer
+
+JQuery attributes:
+1. role = dialog
+2. role = document
+3. data-toggle	: On and OFF
+4. data-target	: It specifies the target dialog
+5. data-dismiss	: close the modal
+
+Ex:
+<head>
+    <link rel="Stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+<body class="container">
+    <button class="btn btn-primary" data-toggle="modal" data-target="#modaldemo">Login</button>
+    <div class="modal fade" id="modaldemo" role="dialog" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">User Login</h2>
+                    <button type="button" class="close" data-dismiss="modal">x</button>
+                </div>
+                <div class="modal-body">
+                    <form> 
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <div>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <div>
+                                <input type="password" class="form-control">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success">Login</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+	      Bootstrap Navbar
+- To create a responsive navigation bar using JQuery and Bootstrap 
+
+Classes
+1. navbar-brand
+2. navbar-nav
+3. navbar-toggler
+4. form-inline
+5. navbar-text
+6. collapse.navbar-collapse
+7. nav-link
+8. nav-item
+
+Note: Always design navbar using "nav" element
+
+Ex:
+<head>
+    <link rel="Stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">NareshIT</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarcontent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarcontent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</body>
+
+
