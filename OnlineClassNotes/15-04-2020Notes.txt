@@ -1,0 +1,80 @@
+                          Bootstrap Pagination
+- Pagination allows to navigate between contents in a page.
+- It allows navigation within the data i.e next, previous, first, last etc..
+
+Classes:
+1. pagination , pagination-sm, pagination-lg
+2. page-item
+3. page-link
+4. active
+5. disabled
+6. justify-content-center, between, end
+
+Ex:
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </head>
+    <body>
+        <nav>
+            <h2>Navigation</h2>
+            <ul class="pagination pagination-lg justify-content-center">
+                <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
+                <li class="page-item  active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item disabled"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
+            </ul>
+        </nav>
+    </body>
+</html>
+
+	     Bootstrap  Popover
+- It is used to display tool-tip for your contents
+- It requires "popper.js"
+
+Attributes:
+1. data-container = "body"
+2. data-toggle = "popover"
+3. data-placement = "top, right, bottom, left"
+4. data-content = "any content"
+
+To Enable Popper you need a JQuery function
+	"popover()"
+
+EX:
+<head>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script>
+        $(function(){
+            $('[data-toggle=popover]').popover();
+        })
+    </script>
+</head>
+<body>
+    <h2>Popper</h2>
+    <button type="button" class="btn btn-danger" data-container="body" data-toggle="popover" data-placement="right" data-content="This will delete the record permanently.." >Delete</button>
+</body>
+
+Note: Add title attribute with popover to display titles.
+
+Syntax:
+  <button title="This is tooltip" type="button" class="btn btn-danger" data-container="body" data-toggle="popover" data-placement="right" data-content="This will delete the record permanently.." >Delete</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
