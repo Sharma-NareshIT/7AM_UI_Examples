@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+<title>Naresh Technologies</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css"/>
+
+<link rel="stylesheet" type="text/css" href="css/style/style.css"/>
+
+        <script src="js/jquery-3.2.1.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/bootstrap.js"></script>
+    <script src="js/admin/main.js"></script>    
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12 col-sm-12">
+
+
+
+<div class="row">
+<br>
+<div class="col-xs-12 col-sm-12">
+<center>
+<h2><strong>Naresh Institute and Technologies</strong></h3></center>
+
+</div>
+</div>
+<br><br> 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+</div>      
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  <ul class="nav navbar-nav navbar-left">
+<a class="navbar-brand" href="index.html"></a>
+      <li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+
+      <li><a href="about.html"><span class="fa fa-question-circle-o"></span> About</a></li>
+      <li><a href="service.html"><span class="fa fa-question-circle-o"></span> Service</a></li>
+      <li><a href="contactus.html"><span class="glyphicon glyphicon-phone"></span> Contact us</a></li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-sign-in"></i> Sign In<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="login.html"><span class="fa fa-sign-in"></span> Sign In </a></li>
+          <li><a href="register.html"><span class="fa fa-user-plus"></span> Sign Up </a></li>
+          <li><a href="password.html"><span class="fa fa-unlock-alt"></span> Change Password </a></li>
+        </ul>
+       </li> 
+  </ul> 
+     </div> 
+  </div>
+</nav>   
+
+
+
+
+
+<div id="viewusers">
+  <div id="row">
+    <div class="table-responsive">
+      <div class="panel panel-primary filterable">
+        <div class="panel-heading"><center><h3 class="panel-title">Details</h3></center>
+          <div class="pull-right">
+          <button class="btn btn-default btn-xs btn-filter"><strong><span class="glyphicon glyphicon-filter"></span> Filter</strong></button>
+          </div>
+        </div>
+       <div class="panel-body filtertable">
+               
+          <table class="table table-striped table-bordered">
+          
+          <thead>
+          <tr class="filters">
+          <th>Id</th>
+          <th><input type="text" class="form-control" placeholder="Course Name" disabled></th>
+          <th><input type="text" class="form-control" placeholder="Faculty Name" disabled></th>
+          <th><input type="text" class="form-control" placeholder="Duration" disabled></th>
+          <th><input type="text" class="form-control" placeholder="Timings" disabled></th>
+          <th><input type="text" class="form-control" placeholder="View" disabled></th>
+
+
+          </tr>
+          </thead>
+          
+          <tbody>
+          	<tr>
+				<td>1</td>
+				<td>Angular 8</td>
+				<td>Sudhakar sharma sir</td>
+				<td>45 days</td>
+				<td>07:30 AM</td>
+				<td>
+					<button type="button" class="viewmodal btn btn-warning btn-sm" data-toggle="modal">view <i class="fa fa-eye"></i></button>
+				</td>
+				<td style='display:none'>Angular 8 is a client-side TypeScript based framework which is used to create dynamic web applications. It is very similar to its previous versions except having some extensive features.</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>Node Js</td>
+				<td>Samba sir</td>
+				<td>45 days</td>
+				<td>9:00 AM</td>
+				<td>
+					<button type="button" class="viewmodal btn btn-warning btn-sm" data-toggle="modal">view <i class="fa fa-eye"></i></button>
+				</td>
+				<td style='display:none'>Node.js connects the ease of a scripting language (JavaScript) with the power of Unix network programming. Node.js was built on the Google V8 JavaScript engine since it was open-sourced under the BSD license.</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>Java</td>
+				<td>Hari krishna sir</td>
+				<td>60 days</td>
+				<td>4:30 PM</td>
+				<td>
+					<button type="button" class="viewmodal btn btn-warning btn-sm" data-toggle="modal">view <i class="fa fa-eye"></i></button>
+				</td>
+				<td style='display:none'>Java is an object-oriented programming language developed by Sun Microsystems, and it was released in 1995. ... Java Virtual Machine (JVM) executes Java code, but it has been written in platform-specific languages such as C/C++/ASM, etc.</td>
+			</tr>
+
+   </tbody>
+   </table>
+   </div>
+   </div>
+</div>
+</div>
+</div>
+
+
+
+
+<!-- Model Start -->
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-md">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Details:</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+
+                    <div class="row">
+                        <div class="col-xs-4 text-info"><strong>Course:</strong></div>
+                        <div class="col-xs-8 text-warning"><span id="cname"></span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4 text-info"><strong>Faculty:</strong></div>
+                        <div class="col-xs-8 text-warning"><span id="fname"></span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4 text-info"><strong>Durations:</strong></div>
+                        <div class="col-xs-8 text-warning"><span id="duration"></span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4 text-info"><strong>Timings:</strong></div>
+                        <div class="col-xs-8 text-warning"><span id="time"></span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4 text-info"><strong>Description:</strong></div>
+                        <div class="col-xs-8 text-warning"><span id="desc"></span></div>
+                    </div>
+                    <br>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-warning" data-dismiss="modal">
+                    <i class="fa fa-close"></i> Close
+                </button>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<!-- Model Close -->
+
+
+
+</div>
+</div> 
+</div>
+
+
+
+
+<!-- Footer Start -->
+<br><br>
+
+<div class="row" id="footer">
+
+	<div class="col-xs-12 col-sm-12">
+
+<center><strong>Naresh Technologies</strong></center>
+<br>
+
+<div class="col-xs-12 col-sm-1"></div>
+<div class="col-xs-12 col-sm-3">
+
+<ul>
+ <li><a href="https://www.facebook.com/nareshit/" target="_blank"><i class ="fa fa-facebook"></i> Facebook</a></li>
+  <li><a href="https://nareshit.in/course-schedule/" target="_blank"><i class ="fa fa-envelope"></i> Google</a></li>
+ <li><a href="https://twitter.com/nareshitech?lang=en" target="_blank"><i class ="fa fa-twitter"></i> Twitter</a></li>
+  <li><a href="https://www.youtube.com/user/nareshtechnologies" target="_blank"><i class ="fa fa-youtube"></i> Youtube</a></li>
+</ul>
+
+</div>
+
+<div class="col-xs-12 col-sm-3">
+
+<ul>
+  <li><a href="#">Home</a></li>
+  <li><a href="#">About</a></li>
+  <li><a href="#">Service</a></li>
+  <li><a href="#">Contact</a></li>
+</ul>
+
+</div>
+
+<div class="col-xs-12 col-sm-5">
+
+<ul>
+  <li>Name : Naresh Istitute</li>
+  <li>Email : info@nareshit.com</li>
+  <li>Contact : +91-xxxxxxxxxx</li>
+  <li>Address : Sr nagar, Hyderabad, Telangana, India </li>
+</ul>
+
+</div>
+
+</div>
+						
+</div>
+
+
+<!-- Footer End -->
+
+
+
+</body>
+</html>
+
+
+
+
+<!-- Jquery Start -->
+
+<script type="text/javascript">
+
+$('.viewmodal').click(function () {
+    $('#id').text($(this).closest("tr").find('td:eq(0)').text());
+    $('#cname').text($(this).closest("tr").find('td:eq(1)').text());
+    $('#fname').text($(this).closest("tr").find('td:eq(2)').text());
+    $('#duration').text($(this).closest("tr").find('td:eq(3)').text());
+    $('#time').text($(this).closest("tr").find('td:eq(4)').text());
+    $('#desc').text($(this).closest("tr").find('td:eq(6)').text());
+
+    $('#myModal').modal('show');
+
+});
+</script>
+
+
+<!-- Jquery End -->

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<head>
+<title>Naresh Technologies</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css"/>
+
+<link rel="stylesheet" type="text/css" href="css/style/style.css"/>
+        <script src="js/jquery-3.2.1.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/admin/main.js"></script>    
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('#dob').datepicker({
+            /*format: "dd/mm/yyyy",*/
+          dateFormat: 'dd-M-yy',
+        }); 
+});
+</script> 
+
+<script type="text/javascript">
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(130)
+                    .height(130);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+<script type="text/javascript">
+
+//$(document).ready(function(){
+function fun1(val){
+  
+  $("#confirmpassword").change(function(){
+  
+    if($("#newpassword").val()==$("#confirmpassword").val()){
+      $("#error").hide();
+      
+    }
+    else{
+      $("#error").html("<strong>* New and Confirm Password should be same.</strong>");
+      $("#error").show();
+    }
+});
+};
+//});
+
+</script>
+
+</head>
+
+<body>
+
+<div class="container-fluid">
+<div class="row">        
+<div class="col-xs-12 col-sm-12">
+
+
+<div class="row">
+<br>
+<div class="col-xs-12 col-sm-12">
+<center>
+<h2><strong>Naresh Institute and Technologies</strong></h3></center>
+
+</div>
+</div>
+<br><br> 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+</div>      
+<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  <ul class="nav navbar-nav navbar-left">
+<a class="navbar-brand" href="index.html"></a>
+      <li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+
+      <li><a href="about.html"><span class="fa fa-question-circle-o"></span> About</a></li>
+      <li><a href="service.html"><span class="fa fa-question-circle-o"></span> Service</a></li>
+      <li><a href="contactus.html"><span class="glyphicon glyphicon-phone"></span> Contact us</a></li>
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-sign-in"></i> Sign In<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="login.html"><span class="fa fa-sign-in"></span> Sign In </a></li>
+          <li><a href="register.html"><span class="fa fa-user-plus"></span> Sign Up </a></li>
+          <li><a href="password.html"><span class="fa fa-unlock-alt"></span> Change Password </a></li>
+        </ul>
+       </li> 
+  </ul> 
+     </div> 
+  </div>
+</nav>   
+
+
+
+
+
+
+<div id="register">
+    
+<div class="row">
+  <div class="col-xs-12 col-sm-4 form-group"></div>          
+            <div class="col-xs-12 col-sm-4 form-group" id="reglogin">
+
+<center><h3><strong>Registration Form</strong></h3>
+
+<p id="error" style="color:red"></p>
+
+</center>
+
+<br><br>
+<div class="log">
+<form method="POST" action="registeraction.php" enctype="multipart/form-data" >
+
+<div class="row">
+       <div class="col-xs-12 col-sm-12 form-group">
+        <label>Full Name :</label>
+      <input type="text" class="form-control" id="fullname" placeholder="Full Name" name="fullname" maxlength="30" oninput="this.value = this.value.replace(/[^A-Za-z ]/g, '').replace(/(\..*)\./g, '$1');" title="Please enter characters only." required>
+      </div>
+      </div>
+<div class="row">
+       <div class="col-xs-12 col-sm-12 form-group">
+        <label>Email :</label>
+      <input type="email" class="form-control" id="emailid" placeholder="Email Id" name="emailid" required>
+    </div> 
+</div>
+<div class="row">
+
+<div class="col-xs-12 col-sm-12 form-group">
+          <label>Mobile :</label>
+      <input type="text" class="form-control" id="phone" placeholder="Contact Number" name="phone" required pattern="[7-9]{1}[0-9]{9}" maxlength="10" title="The contact number must enter 10 digits number and number start with 7 or 8 or 9." oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+    </div>                            
+</div>
+<div class="row">
+   <div class="col-xs-12 col-sm-12 form-group">
+    <label>Data :</label>
+    <input type="text" class="form-control" data-date-format="" id="dob" placeholder="Date" name="dob" required>
+    </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 form-group">
+      <label>Image :</label>
+          <input type="file" name="file" placeholder="Image" accept=".png, .jpg, .jpeg" onchange="readURL(this);" required>
+    </div>                       
+  </div>
+<div class="row">  
+         <div class="col-xs-12 col-sm-12 form-group">
+      <label>Password :</label>
+          <input type="password" class="form-control" id="password" placeholder="Password" name="password" minlength="6" maxlength="10" required title="the password enter must above 6 and below 10 characters only.">
+        </div>               
+  </div>  
+<div class="row">
+                 <div class="col-xs-12 col-sm-12 form-group">
+                  <label>Confirm Password :</label>
+              <input type="password" class="form-control" id="confirmpassword" placeholder="Confirm Password" name="confirmpassword" minlength="6" maxlength="10" onChange="fun1(this.value)" title="the password enter must above 6 and below 10 characters only." required>
+            </div>
+          </div>
+<div class="row">
+        <div class="col-xs-12 col-sm-12 form-group">
+           <label>Gender :</label>
+              <input type="radio" id="gender" name="gender" value="male" required> Male
+              <input type="radio" id="gender" name="gender" value="female" required> Female
+            </div>
+          </div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12">
+         <div class="checkbox">
+          <label><input type="checkbox" id="terms" name="terms" required>I've read and Accept the 
+                <a href="#myModal"  data-toggle="modal" data-target="" class="text-danger">Terms and Conditions</a></label>                       
+         </div>
+    </div>
+</div>
+ 
+    <div class="row btngrp">
+      <div class="col-xs-12 col-sm-2">
+  <a href="login.html"><button type="button" name="submit" class="btn btn-warning btn-md pull-left">Already you have an account</button></a>   
+      </div>
+    <div class="col-xs-12 col-sm-10">
+      <button type="submit" class="btn btn-success btn-md pull-right" id="submitbtn"><span>Register</span></button>
+    </div>
+    </div>                
+
+</form>  
+
+</div>            
+</div>
+
+<div class="col-xs-12 col-sm-1"></div>
+<div class="col-xs-12 col-sm-3">
+<br><br><br>
+<img id="blah" src="Images/user.png" class="zoom" alt="your image" width="130" height="130">
+</div>
+
+
+
+</div>
+</div>
+
+
+<!-- Model Start -->
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-md">
+
+<div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-warning text-center"><strong>Terms and Conditions</strong></h4>
+      </div>
+      <div class="modal-body">
+                 
+<p class="fa fa-star" style="line-height: 1.4"> &nbsp; A Terms and Conditions agreement is the agreement that includes the terms, the rules and the guidelines of acceptable behavior and other useful sections to which users must agree in order to use or access your website and mobile app.</p>
+<p class="fa fa-star" style="line-height: 1.4"> &nbsp; While most websites seem to have one, there's actually no legal requirement for defining terms and conditions. However, if you are gathering user's personal data, you are required to have a stated Privacy Policy. Terms and Conditions may not be required by law, but it's still a smart thing to include.</p>
+    
+</div>
+        
+
+     
+<div class="modal-footer">
+        
+   <button type="button" id="closebtn" data-dismiss="modal" class="btn btn-warning btn-md pull-right">Close</button>
+  </div>
+ </div>
+</div> 
+</div>
+
+
+<!-- Model Close -->
+
+
+
+<!-- Footer Start -->
+<br><br>
+
+<div class="row" id="footer">
+
+  <div class="col-xs-12 col-sm-12">
+
+<center><strong>Naresh Technologies</strong></center>
+<br>
+
+<div class="col-xs-12 col-sm-1"></div>
+<div class="col-xs-12 col-sm-3">
+
+<ul>
+ <li><a href="https://www.facebook.com/nareshit/" target="_blank"><i class ="fa fa-facebook"></i> Facebook</a></li>
+  <li><a href="https://nareshit.in/course-schedule/" target="_blank"><i class ="fa fa-envelope"></i> Google</a></li>
+ <li><a href="https://twitter.com/nareshitech?lang=en" target="_blank"><i class ="fa fa-twitter"></i> Twitter</a></li>
+  <li><a href="https://www.youtube.com/user/nareshtechnologies" target="_blank"><i class ="fa fa-youtube"></i> Youtube</a></li>
+</ul>
+
+</div>
+
+<div class="col-xs-12 col-sm-3">
+
+<ul>
+  <li><a href="#">Home</a></li>
+  <li><a href="#">About</a></li>
+  <li><a href="#">Service</a></li>
+  <li><a href="#">Contact</a></li>
+</ul>
+
+</div>
+
+<div class="col-xs-12 col-sm-5">
+
+<ul>
+  <li>Name : Naresh Istitute</li>
+  <li>Email : info@nareshit.com</li>
+  <li>Contact : +91-xxxxxxxxxx</li>
+  <li>Address : Sr nagar, Hyderabad, Telangana, India </li>
+</ul>
+
+</div>
+
+</div>
+            
+</div>
+
+
+<!-- Footer End -->
+
+
+</div>
+</div>
+</div>
+
+
+
+
+
+</body>
+</html>
+    
+
+
+
+
+
+
+
