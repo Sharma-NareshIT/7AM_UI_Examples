@@ -1,0 +1,40 @@
+		Angular JS
+- Angular JS is an open source, cross platform, JavaScript based Framewok developed by Google and maintained by a large community of organizations and developers to address the issues in SPA.
+
+- Angular Js uses JavaScript based library.
+- It allows to build application and control application flow.
+- It uses frameworks like MVC, MVP and MVVM for building applications.
+- It also uses frameworks like Cordova, Ionic and NativeScript, which are are used to build cross platform mobile apps.
+- Angular JS started in 2010 with 1.0
+- Angular JS latest version till data is 1.7.9
+
+Installing Angular JS for Project
+----------------------------------------------
+1. Open your project location in Terminal or command prompt
+2. Install Angular Js core library.
+
+     > npm install angular
+
+	node_modules
+	|_angular
+	   |_angular.js
+
+Ex:  Home.html
+
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <title>Angular JS {{1+1}} </title>
+        <script src="../node_modules/angular/angular.js"></script>
+    </head>
+    <body>
+        <h2>Welcome to Angular Js</h2>
+        <div>
+            Addition : {{10+20}}
+        </div>
+        <div>
+            Multiply : {{4 * 4}}
+        </div>
+    </body>
+</html>
+
