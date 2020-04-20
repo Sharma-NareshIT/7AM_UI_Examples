@@ -1,0 +1,114 @@
+                Angular JS Framework Components
+
+Component	Description
+-----------------------------------------------------------------------------
+1. Module	           A module is collection of various
+	           component in angular. Every module
+	           contains controllers, models, views,
+	           directives, filters, services.
+2. Controller       It contains application specific logic
+3. Model	          It represents the data and contains 
+	          data.
+4. View	          It represents user interface [UI]
+5. Factory	          It is a collection of functions.
+6. Service	          It is a collection of factories.
+7. Directive        It is used to make the static DOM into
+	          dynamic DOM.
+
+
+	     Angular JS Modules
+	     ------------------------------
+1. A module comprises of several components, which include factory, services, directives, filters etc.
+
+2. A module is like a container with components.
+3. It is similar to a Class in OOP.
+4. Angular JS provide several built-in modules like:
+            ngRoute, ngMessages, ngAnimations 
+            ngSanitize etc..
+5. Modules are present in a libary like
+	angular.js
+	angular-route.js
+	angular-sanitize.js
+6. You can create a new Module by using
+	"angular.module()"
+
+Syntax:
+        var app = angular.module("moduleName", [ dependencies ]);
+        var app = angular.module("DemoModule", ['ngRoute', 'ngSanitize',...]);
+
+7. A module is applied to HTML document by using the directive "ng-app"
+
+	<body ng-app="DemoModule">
+
+8. Every HTML document can use only one module i.e there can be only one "ng-app" defined in a page.
+
+	       Angular JS Controller
+	      ===================
+- Controller contains application specific logic.
+- The logic required for angular js interactions is defined in controller.
+- Every application can have several controllers.
+- Controller is created by using
+	"angular.controller()"
+
+Syntax:
+         angular.controller("ControllerName", function(){
+
+
+          })
+
+- Controller is applied to document by using "ng-controller" directive
+
+ <body ng-app="ModuleName"  ng-controller="ControllerName">
+
+
+Ex:
+<!DOCTYPE html>
+<html>
+    <head>
+   <script src="../node_modules/angular/angular.js">    </script>
+        <script>
+            var app = angular.module("DemoModule",[]);
+            app.controller("HomeController", function(){
+                alert("Hello Angular");
+            })
+        </script>
+    </head>
+    <body ng-app="DemoModule" ng-controller="HomeController">
+       
+    </body>
+</html>
+
+- The members declared in a controller are accesible only within the controller.
+- To define the members for global access you have to use a service called "$scope" in controller function.
+
+Ex:
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="../node_modules/angular/angular.js"></script>
+        <script>
+            var app = angular.module("DemoModule",[]);
+            app.controller("HomeController", function($scope){
+                var msg="Welcome to Angular JS";
+                $scope.message = msg;
+                $scope.add = function(a,b){
+                    return a+b;
+                }
+            })
+        </script>
+    </head>
+    <body ng-app="DemoModule" ng-controller="HomeController">
+       <h2 align="center">{{message}}</h2>
+       <div>
+          Addition :  {{add(60,40)}}
+       </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
