@@ -1,0 +1,71 @@
+	       Angular JS Directives
+- Directive is Angular JS is used for 
+	a) Extending Markup
+	b) Making markup Dynamic
+	c) Making the markup more interactive
+- Angular JS provides several built-in directives
+- The core library for directives in Angular Js is "angular.js".
+
+1. ng-app  : It is used to configure angular module
+	  to the document scope.
+
+	<body ng-app="ModuleName">
+
+2. ng-controller: It is used to configure a controller.
+
+	<body ng-controller="controllerName">
+
+3. ng-init : It is used to initialize value in angular scope. The initialized variables are accessbile from any location within the Angular scope.
+
+Ex:
+<head>
+    <script src="../node_modules/angular/angular.js"></script>
+</head>
+<body ng-app>
+  <div ng-init="count=0" ng-mouseover="count=count+1" style="width: 400px; height: 50px; background-color: yellow; font-size: 2em;">
+      Mouse is over div {{count}} times.
+  </div>
+</body>
+
+
+Ex:
+<head>
+    <script src="../node_modules/angular/angular.js"></script>
+</head>
+<body ng-app>
+  <div ng-init="count=0" ng-mouseover="count=count+1" style="width: 400px; height: 50px; background-color: yellow; font-size: 2em;">
+      Mouse is over div {{count}} times.
+  </div>
+  <div style="margin-top: 20px;">
+      <img src="../Images/shoe.jpg" width="100" height="100">
+      <br>
+      <button ng-init="likes=0" ng-click="likes=likes+1">{{likes}} Like(s)</button>
+  </div>
+</body>
+
+Ex: Any Type of value can be initialized by using 
+	        "ng-init"
+<head>
+    <script src="../node_modules/angular/angular.js"></script>
+    <style>
+        dt {
+            background-color: gray;
+            font-weight: bold;
+            color:white;
+        }
+    </style>
+</head>
+<body ng-app>
+   <dl>
+       <dt ng-init="msg='Welcome to Angular JS'">Initialize String</dt>
+       <dd>{{msg}}</dd>
+       <dt ng-init="cities=['Delhi', 'Hyd']">Initialize Array</dt>
+       <dd> Cities[0]-{{cities[0]}} <br> Cities[1]-{{cities[1]}}</dd>
+       <dt ng-init="product={Name:'Samsung TV', Price: 34000.43, InStock:false, Photo: '../Images/tv.jpg'}">Initialize Object</dt>
+       <dd>Name : {{product.Name}} <br> Price : {{product.Price}} <br> InStock : {{(product.InStock==true)?"Available":"Out of Stock"}} <br> <img src="{{product.Photo}}" width='100' height='100'> </dd>
+   </dl>
+</body>
+
+
+
+
