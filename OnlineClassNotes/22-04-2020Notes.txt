@@ -1,0 +1,132 @@
+ng-show / ng-hide : Used to show or hide any element
+ng-if : It is used to add or remove any element.
+
+ Syntax:
+	ng-show = true/false
+	ng-hide = true/false
+	ng-if = true/false
+
+Ex:
+<head>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script>
+        var app = angular.module("DemoApp",[]);
+        app.controller("HomeController", function($scope){
+            $scope.isVisible = false;
+            $scope.btnText = ($scope.isVisible==false)?"Show":"Hide";
+            $scope.btnClick = function(){
+                $scope.isVisible = ($scope.isVisible==false)?true:false;
+                $scope.btnText = ($scope.isVisible==false)?"Show":"Hide";
+            }
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+    <button ng-click="btnClick()">{{btnText}} Picture</button>
+    <div ng-if="isVisible">
+        <img src="../Images/tv.jpg" width="100" height="100">
+    </div>
+</body>
+
+ng-repeat: It is used to repeat any HTML element.
+	 It uses an iterator that can read elements
+	 from a collection in sequential order.
+
+         <li ng-repeat="item in collection"> {{item}} </li>
+
+Ex:
+<head>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script>
+        var app=angular.module("DemoApp",[]);
+        app.controller("HomeController", function($scope){
+            $scope.categories = ["Electronics", "Shoes", "Fashion"];
+        });
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+   <h2>Categories</h2>
+   <ol>
+       <li ng-repeat="item in categories">{{item}}</li>
+   </ol>
+   <h2>Select Category</h2>
+   <select>
+       <option ng-repeat="item in categories">{{item}}</option>
+   </select>
+   <h2>Choose a Category</h2>
+   <ul style="list-style-type: none;">
+       <li ng-repeat="item in categories"><input type="checkbox"> {{item}}</li>
+   </ul>
+</body>
+
+
+Ex: Nested Repeat
+
+<head>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script>
+        var app=angular.module("DemoApp",[]);
+        app.controller("HomeController", function($scope){
+            $scope.data = [
+                {Category: "Electronics", Products: ["TV", "Mobile", "Watch"]},
+                {Category: "Footwear", Products:["Nike Casuals", "Lee Cooper Boot"]},
+                {Category: "Fashion", Products:["Jeans", "T-shirt"]}
+            ]
+        });
+    </script>
+    <style>
+        ul a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+  <h2>Amazon Shopping</h2>
+  <ol>
+     <li ng-repeat="item in data">
+         <a href="#">{{item.Category}}</a>
+         <ul>
+             <li ng-repeat="product in item.Products"><a href="#">{{product}}</a></li>
+         </ul>
+     </li> 
+  </ol>
+</body>
+
+Ex:
+<head>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script>
+        var app=angular.module("DemoApp",[]);
+        app.controller("HomeController", function($scope){
+            $scope.data = [
+              {Name: "TV", Price: 40000.54, IsInStock:true},
+              {Name: "Nike Shoe", Price: 5000.54, IsInStock:false},
+              {Name: "Earpods", Price: 7000.54, IsInStock:true},
+            ]
+        });
+    </script>
+    <style>
+        ul a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+  <h2>Products Table</h2>
+  <table width="400" border="1">
+    <thead>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Stock</th>
+    </thead>
+    <tbody>
+        <tr  ng-repeat="item in data">
+            <td>{{item.Name}}</td>
+            <td>{{item.Price}}</td>
+            <td>{{(item.IsInStock==true)?"Available":"Out of Stock"}}</td>
+        </tr>
+    </tbody>
+  </table>
+</body>
+
+
