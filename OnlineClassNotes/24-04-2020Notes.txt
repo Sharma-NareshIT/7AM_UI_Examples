@@ -1,0 +1,89 @@
+<head>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        .box {
+            float: left;
+            width: 500px;
+            border:2px solid darkcyan;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+    </style>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script>
+        var app=angular.module("DemoApp",[]);
+        app.controller("HomeController", function($scope){
+            $scope.products = [
+                {ProductId:1, Name: "Samsung TV", Price: 45000.55},
+                {ProductId:2, Name: "Nike Casuals", Price: 2300.44}
+            ];
+            $scope.ProductId = $scope.products.length + 1;
+            $scope.Name = "";
+            $scope.Price = 0;
+
+            $scope.newProduct = {
+                ProductId: 0,
+                Name: "",
+                Price: 0
+            };
+            $scope.AddProduct = function(){
+               $scope.newProduct = {
+                  ProductId:$scope.ProductId,
+                  Name:$scope.Name,
+                  Price:$scope.Price
+               }
+               $scope.products.push($scope.newProduct);
+               alert("Record Inserted");
+               $scope.ProductId = $scope.products.length + 1;
+               $scope.Name= "";
+               $scope.Price= 0;
+            }
+            $scope.DeleteClick = function(index){
+                var confirmDelete = confirm("Are you Sure want to Delete?");
+                if(confirmDelete==true) {
+                    $scope.products.splice(index,1);
+                    alert("Record Deleted");
+                }
+            }
+        })
+    </script>
+</head>
+<body ng-app="DemoApp" ng-controller="HomeController">
+  <div class="container-fluid">
+    <div class="box">
+        <h2>Products List</h2>
+      <table class="table table-hover">
+          <thead>
+              <th>Product Id</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Action</th>
+          </thead>
+          <tbody>
+              <tr ng-repeat="item in products">
+                 <td>{{item.ProductId}}</td>
+                 <td>{{item.Name}}</td>
+                 <td>{{item.Price}}</td>
+                 <td><button ng-click="DeleteClick($index)" class="btn btn-danger">Delete</button></td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+    <div class="box">
+        <h2>Add Product</h2>
+        <form>
+            <dl>
+                <dt>Product Id</dt>
+                <dd><input type="number" class="form-control" ng-model="ProductId" ></dd>
+                <dt>Name</dt>
+                <dd><input type="text" class="form-control" ng-model="Name"></dd>
+                <dt>Price</dt>
+                <dd><input type="text" class="form-control" ng-model="Price"></dd>
+            </dl>
+            <button ng-click="AddProduct()" class="btn btn-primary btn-block">Add Product</button>
+        </form>
+    </div>
+  </div>
+</body>
