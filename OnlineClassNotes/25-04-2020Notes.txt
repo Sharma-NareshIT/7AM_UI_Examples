@@ -1,0 +1,104 @@
+	         Filters in Angular
+- Formatting, Filtering and Sorting the Data.
+- Angular JS provides the following filters
+	1. uppercase
+	2. lowercase
+	3. number	
+	4. currency
+	5. limitTo
+	6. orderBy
+	7. filter
+	8. json
+	9. date
+- Filter is a function that reads your value and manipulates by using a built-in functionality and  returns the value.
+- Filters are applied by using "|"
+
+
+uppercase ]       Used to convert values into upper or
+lowercase  ]      lowercase.
+
+	{{ data | uppercase }}
+
+number     :  It is used to display number with 1000
+	    separator and decimal places.
+
+currency	:  It is similar to number but will have a 
+	   currency symbol.
+
+     {{ data | currency : 'symbol': 3 }}
+
+date  : To display date values in various date formats.
+
+     {data | date: 'MM/dd/yyyy' }}
+
+Ex:
+<head>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        .gridWrapper {
+            display: grid;
+            grid-template-columns: 200px 1000px;
+            column-gap: 10px;
+        }
+        .menu {
+            border:2px solid darkcyan;
+            height: 500px;
+            padding: 20px;
+        }
+        .section {
+            border:2px solid darkcyan;
+            padding: 20px;
+            overflow: scroll;
+        }
+    </style>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script>
+        var app = angular.module("DemoApp",[]);
+        app.controller("HomeController", function($scope){
+            $scope.data = [
+                {Name: "Samsung TV", Price: 43000.44, Mfd: new Date("2020/02/10"), Photo: "../Images/tv.jpg", Category:"Electronics"},
+                {Name: "Mobile", Price: 19000.44, Mfd: new Date("2020/01/18"), Photo: "../Images/mobile.jpg", Category:"Electronics"},
+                {Name: "Nike Casuals", Price: 6000.44, Mfd: new Date("2020/03/04"), Photo: "../Images/shoe.jpg", Category:"Footwear"},
+                {Name: "Lee Cooper Boot", Price: 3000.44, Mfd: new Date("2020/01/01"), Photo: "../Images/shoe1.jpg", Category:"Footwear"},
+                {Name: "Sunglasses", Price: 7000.44, Mfd: new Date("2020/04/01"), Photo: "../Images/sunglass.jpg", Category:"Fashion"}
+            ];
+        })
+    </script>
+</head>
+<body class="container" ng-app="DemoApp" ng-controller="HomeController">
+  <div class="gridWrapper">
+    <div class="menu">
+        <h4>Filter Products</h4>
+        <div>
+            <label>Sort</label>
+            <select ng-model="sort" class="form-control">
+                <option value="Name">Name</option>
+                <option value="Price">Price</option>
+                <option value="Mfd">Manufactured</option>
+            </select>
+        </div>
+        <div>
+            <label>Search</label>
+            <input type="text" class="form-control" ng-model="search">
+        </div>
+    </div>
+    <div class="section">
+        <h2>Products Catalog</h2>
+        <div class="card-deck">
+            <div class="card" ng-repeat="product in data |orderBy:sort | filter:search">
+                <div class="card-header">
+                    <div>{{product.Name|uppercase}}</div>
+                </div>
+                <div class="card-body">
+                    <img src="{{product.Photo}}" width="100" height="100">
+                </div>
+                <div class="card-footer">
+                    <div>{{product.Mfd|date:'MMM-dd-yyyy'}}</div>
+                    <div>{{product.Price |currency:'&#8377;':2}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</body>
+
