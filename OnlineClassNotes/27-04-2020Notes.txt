@@ -1,0 +1,125 @@
+uppercase
+lowercase
+number
+currency
+date
+filter
+orderBy
+limitTo
+json
+
+limitTo : It specifies the number of records to display
+
+<input type="number"  ng-model="records" min="1" max="{{data.length}}">
+
+<div class="card" ng-repeat="product in data |orderBy:sort | filter:search | limitTo:records">
+
+json :  It is used to convert the data into JSON format.
+
+                {{data | json}}
+
+
+	            Http Service
+- It allows to configure communication with Services.
+- It can make are request and access the response details to display client side.
+- It is used for WebServices and RESTful services.
+            [Representational State Transfer]
+- Angular JS uses "$http" service to handle the request from client side.
+
+Syntax:
+ $http.get("url")
+          .then(function sucess(response) { 
+       	// on success
+           }, function  failure(response){
+	// on failure
+          });
+
+Response Object contains several details like
+	a) status     : It returns status code 
+		     200, 404
+	b) statusText:  It returns status text.
+		      OK, NotFound
+	c) data	  : It contains data present in file
+
+Ex:
+1. Create a new folder by name "Data"
+
+2. Add a new file into  folder by name
+	     "products.json"
+[
+    {
+        "Name": "Samsung TV",
+        "Price": 34000.44,
+        "IsInStock": true
+    },
+    {
+        "Name":"Nike Casuals",
+        "Price": 2000.44,
+        "IsInStock":false
+    },
+    {
+        "Name":"Mobile",
+        "Price": 13000.44,
+        "IsInStock":true
+    }
+]
+
+3. Create a new Angular JS App  to consume data
+	                "index.html"
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <script src="../node_modules/angular/angular.js"></script>
+        <script>
+            var app =angular.module("DemoApp",[]);
+            app.controller("HomeController", function($scope, $http){
+                $scope.code;
+                $scope.text;
+                $scope.data;
+
+                $http.get("../data/product.json")
+                     .then(function(response){
+                        $scope.code = response.status;
+                        $scope.text = response.statusText;
+                        $scope.data = response.data;
+                     }, function(response){
+                        $scope.code = response.status;
+                        $scope.text = response.statusText;
+                        $scope.data = "no-data to display";
+                     })                    
+            })
+        </script>
+    </head>
+    <body class="container" ng-app="DemoApp" ng-controller="HomeController">
+       <h2>Http Service</h2>
+       <dl>
+           <dt>Status Code</dt>
+           <dd>{{code}}</dd>
+           <dt>Status Text</dt>
+           <dd>{{text}}</dd>
+           <dt>Data</dt>
+           <dd>
+               <pre>
+                   {{data|json}}
+               </pre>
+           </dd>
+       </dl>
+    </body>
+</html>
+
+MongoDb	- Database
+Node JS - Server Side
+Express - Middleware
+Angular JS - Client Side
+HTML, CSS, JQuery
+
+	                  Project
+
+
+
+
+
+
+
+
