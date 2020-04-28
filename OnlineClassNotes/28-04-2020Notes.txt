@@ -1,0 +1,106 @@
+		Routing
+- Routing is a technique used in Web Applications.
+- Routing technique allows to handle navigation in application.
+- User can stay on single page and can get access to everything from the page.
+- User will not navigate outside the page.
+- New components are added to page without reloading the complete page.
+- This type of Application interface is known as SPA.
+   [Single Page Application].
+
+- Routing Requires "ngRoute" module which is present in "angular-route.js"
+
+- ng-view is a directive used to specific where the result must be displayed in page.
+
+- Routes are configured by using "angular.config()" with a service called "$routeProvider"
+
+Syntax:
+	app.config(function($routeProvider){
+	       $routeProvider
+	        .when("/home", {
+	              templateUrl: "home.html"
+	          })
+	})
+                 <a href="#!home"> Home </a>
+
+
+
+Ex:
+1. Visit the following URL
+         https://code.angularjs.org/1.7.9
+2. Right Click on "angular-route.js"
+3. Select "Save Link as"
+4. Save into your project
+	C:\Ishop\node_modules\angular
+	 "angular-route.js"
+
+5. Create a new folder by name
+	"Website"
+6. Add following files
+	- index.html
+	- home.html
+	- about.html
+	- contact.html
+	- login.html
+7. design all pages with your own content
+8. Index.html code
+	       "Index.html"
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <style>
+            a:link{
+                color:white;    
+            }
+        </style>
+        <script src="../node_modules/angular/angular.js"></script>
+        <script src="../node_modules/angular/angular-route.js"></script>
+        <script>
+            var app=angular.module("DemoApp",['ngRoute']);
+            app.config(function($routeProvider){
+                $routeProvider
+                .when("/", {
+                    templateUrl : "home.html"
+                })
+                .when("/home", {
+                    templateUrl: "home.html"
+                })
+                .when("/about",{
+                    templateUrl:"about.html"
+                })
+                .when("/contact", {
+                    templateUrl:"contact.html"
+                })
+                .when("/login",{
+                    templateUrl:"login.html"
+                })
+            })
+            app.controller("IndexController", function($scope){
+
+            })
+        </script>
+    </head>
+    <body ng-app="DemoApp" ng-controller="IndexController">
+     <div class="container">
+        <header class="btn-toolbar text-white bg-primary justify-content-between">
+            <h2>Naresh-I-Technologies</h2>
+            <div class="btn-group">
+                <a href="#!home" class="btn btn-primary">Home</a>
+                <a href="#!about" class="btn btn-primary">About</a>
+                <a href="#!contact" class="btn btn-primary">Contact
+            </div>
+            <div class="btn-group">
+                <a href="#!login" class="btn btn-primary">Login</a>
+            </div>
+        </header>
+        <section style="height: 350px;">
+            <ng-view></ng-view>
+        </section>
+        <footer class="bg-primary text-white text-center">
+            <div>
+                &copy; copyright 2020
+            </div>
+        </footer>
+     </div>
+    </body>
+</html>
