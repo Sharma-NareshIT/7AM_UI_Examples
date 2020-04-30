@@ -1,0 +1,157 @@
+	       Angular JS Validations
+- Angular validations are handled at 2 states
+	a) Form State Validation
+	b) Input State Validation
+
+
+Form State Validation:
+- It is the process of verifying all fields in the form.
+- The validation services for Form state are
+
+$pristine		- Form Not Modified
+$dirty		- Form Modified
+$valid		- All fields Valid
+$invalid		- Any one field Invalid
+$submitted	- Form Submitted
+
+- All validation services return boolean true/false.
+- Validations for Angular JS required validations to be defined in HTML with attributes like, requried, pattern, minlength, maxlength, email, url, etc..
+- Form Validation Services are accessed by using form name.
+
+	frmRegister.$pristine
+	frmRegister.$dirty
+
+
+Ex:
+<head>
+ <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+ <style>
+     form {
+         width:300px;
+         float: left;
+     }
+     button:disabled {
+         cursor : not-allowed;
+     }
+ </style>
+ <script src="../node_modules/angular/angular.js"></script>
+
+</head>
+<body ng-app class="container">
+    <form name="frmRegister">
+        <h2>Register User </h2>
+        <div class="form-group">
+            <label>User Name</label>
+            <div>
+                <input type="text" ng-model="txtName" ng-init="txtName='John'" value="John" name="txtName" class="form-control" required>
+            </div>            
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <div>
+                <input type="password" ng-model="txtPwd" ng-init="txtPwd='JOHN'" value="JOHN" name="txtPwd" class="form-control" required pattern="[A-Z]{4,10}">
+            </div>
+        </div>
+        <div class="form-group">
+            <button ng-disabled="frmRegister.$invalid"  class="btn btn-block btn-primary">Register</button>
+            <button ng-disabled="frmRegister.$pristine" class="btn btn-success btn-block">Save</button>
+        </div>
+    </form>
+    <div class="form-group" style="float:left; border:1px solid darkcyan; margin-left: 30px;width:300px">
+
+        <dl>
+            <dt>Pristine [Not-Modified]</dt>
+            <dd>{{frmRegister.$pristine}}</dd>
+            <dt>Dirty [Form Modified]</dt>
+            <dd>{{frmRegister.$dirty}}</dd>
+            <dt>Valid</dt>
+            <dd>{{frmRegister.$valid}}</dd>
+            <dt>Invalid</dt>
+            <dd>{{frmRegister.$invalid}}</dd>
+            <dt>Submitted</dt>
+            <dd>{{frmRegister.$submitted}}</dd>
+        </dl>
+    </div>
+</body>
+
+2. Input State Validation Services
+    They are used to verify every field individually.
+
+$pristine		Field Not modified
+$dirty		Field Modified
+$valid		Field is valid
+$invalid		Field is invalid
+$touched		Field touched
+$untoched	Field untouched
+$error		Verifies specific error
+
+Syntax:
+         formName.inputName.$invalid
+         formName.inputName.$pristine
+
+
+Note: If a control is having multiple validations then you can verify every validation property by using $error"
+
+        formName.inputName.$error.required
+        formName.inputName.$error.pattern
+ 
+
+
+Ex:
+<head>
+ <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+ <style>
+     form {
+         width:300px;
+         float: left;
+     }
+     button:disabled {
+         cursor : not-allowed;
+     }
+ </style>
+ <script src="../node_modules/angular/angular.js"></script>
+
+</head>
+<body ng-app class="container">
+    <form name="frmRegister">
+        <h2>Register User </h2>
+        <div class="form-group">
+            <label>User Name</label>
+            <div>
+                <input type="text" ng-model="txtName" name="txtName" class="form-control" required>
+                <span class="text-danger" ng-if="frmRegister.txtName.$invalid" >Name Required</span>
+            </div>            
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <div>
+                <input type="password" ng-model="txtPwd"  name="txtPwd" class="form-control" required pattern="[A-Z]{4,10}">
+                <span class="text-danger" ng-if="frmRegister.txtPwd.$error.required">Password Required</span>
+                <span class="text-danger" ng-if="frmRegister.txtPwd.$error.pattern">4 to 15 with 1 uppercase</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <button ng-disabled="frmRegister.$invalid"  class="btn btn-block btn-primary">Register</button>
+            <button ng-disabled="frmRegister.$pristine" class="btn btn-success btn-block">Save</button>
+        </div>
+    </form>
+    <div class="form-group" style="float:left; border:1px solid darkcyan; margin-left: 30px;width:300px">
+
+        <dl>
+            <dt>Pristine [Not-Modified]</dt>
+            <dd>{{frmRegister.$pristine}}</dd>
+            <dt>Dirty [Form Modified]</dt>
+            <dd>{{frmRegister.$dirty}}</dd>
+            <dt>Valid</dt>
+            <dd>{{frmRegister.$valid}}</dd>
+            <dt>Invalid</dt>
+            <dd>{{frmRegister.$invalid}}</dd>
+            <dt>Submitted</dt>
+            <dd>{{frmRegister.$submitted}}</dd>
+        </dl>
+    </div>
+</body>
+
+
+
+
