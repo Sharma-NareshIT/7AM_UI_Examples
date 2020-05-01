@@ -1,0 +1,51 @@
+	          MEAN Stack with UI
+
+M	- MongoDb	- Database
+E	- Express		- Middleware
+A	- Angular [JS]	- Client Side
+N	- Node JS		- Server Side
+
+
+	             IEEE Project
+1. Visit
+   http://ieeexplore.ieee.org/Xplore/home.jsp
+
+2. Visit the "i-shop" project abstract
+
+   https://ieeexplore.ieee.org/document/7941952
+
+3. Copy DOI number of Project
+
+4. Vist a website
+	"https://sci-hub.tw/"
+
+5. Paste the DOI number and click Open
+
+6. Download PDF Document [base paper]
+
+
+Task:
+- Read the Project Documentation
+- Prepare an Ms-Word Document
+- Project Name is "i-shop"
+- In Ms-word document prepare the following topics
+
+	a) Abstract  [ max 4 lines ]
+	b) Existing System    [without this project
+			  how generally 
+			  shopping]
+	c) Proposed System  [With this project
+			   how benifited]
+	d) Modules [in this project]
+
+
+
+
+
+	
+
+
+
+
+
+
