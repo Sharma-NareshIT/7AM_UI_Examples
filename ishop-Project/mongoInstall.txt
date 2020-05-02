@@ -1,0 +1,56 @@
+	            MongoDb
+	           [Database]
+
+Install MongoDb:
+===============
+1. Visit the following
+
+https://www.mongodb.com/download-center/community
+
+2. Select the following
+	version	:  4.2.6
+	OS	: windows
+	Package	: MSI
+
+3. Download and Install MongoDb
+
+Test MongoDb Server and Client:
+===========================
+
+Starting Server:
+----------------------
+1. Open Windows Services
+	Run → services.msc
+
+2. Right Click on "MongoDb Server"
+3. Start
+   [Goto Properties → Set Automatic]
+
+Start Client:
+1. Open Command Prompt
+
+C:\Users\Sharma>cd\
+
+C:\>cd Program files
+
+C:\Program Files>cd mongodb
+
+C:\Program Files\MongoDB>cd server
+
+C:\Program Files\MongoDB\Server>cd 4.2
+
+C:\Program Files\MongoDB\Server\4.2> cd bin
+
+C:\Program Files\MongoDB\Server\4.2\bin>mongo.exe
+
+2. Type the following command
+
+       >mongo.exe
+
+This will start mongodb client ">" terminal
+
+
+
+
+
+
