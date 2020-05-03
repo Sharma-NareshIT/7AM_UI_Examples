@@ -1,0 +1,94 @@
+	      Creating Database
+	      ===============
+1. Open MongoDb Terminal
+
+C:\Program Files\MongoDB\Server\4.0\bin>mongo.exe
+
+2. View Existing Databases
+
+	> show dbs
+
+3. To Create a new Database
+
+Syntax:
+	> use databaseName
+Ex:
+	> use shoppingdb
+
+
+         Create Database Tables for I-Shop Project
+         ------------------------------------------------------------
+         [Mongodb Tables are known as Collections]
+
+Required Tables for Modules:
+
+Module Name	Table Name with fields
+-------------------------------------------------------------------
+Registration	tblregister
+		-UserId	  : string
+		-UserName : string
+		-Password  : string
+		-Email	   : string
+		-Mobile	   : string
+		-Address	   : string
+
+Products Browse ]	 
+Products Search  ] 	tblcategories
+		- CategoryId : number
+	                  - CategoryName: string
+
+		tblproducts
+		- ProductId   : number
+		- Name	     : string
+		- Price	     : number
+		- IsInStock     : boolean
+		- Photo	     : string
+		- CategoryId  : number
+
+Creating Tables
+=============
+ Tables are known as collections and they are created by using the command "db.createCollection()". The command "db" refers to current database.
+
+> db.createCollection("tblregister")
+> db.createCollection("tblcategories")
+> db.createCollection("tblproducts")
+
+ > show dbs   → to view list of databases
+ > show collections → to view list of tables
+
+Note: To Remove Database
+	> use yourDatabaseName
+	> db.dropDatabase()
+	
+           To Remove Table [collection]
+	> db.collectionName.drop()
+	> db.tableName.drop()
+	> db.tblregister.drop()
+
+Insert Records into Tables:
+======================
+- Records [rows] are known as Documents in MongoDb.
+- To insert a new record you have to use 
+
+	> db.collectionName.insert({})  one record
+	> db.collectionName.insert([{},{}]) many
+
+* Register Table [ tblregister ]
+
+ >db.tblregister.insert({UserId:"john_nit", UserName:"John", Password:"john123", Email:"john@gmail.com", Mobile:"+919876543210", Address:"Ameerpet - Hyderabad - 500073"})
+
+* Categories Table  [tblcategories]
+
+> db.tblcategories.insert([{CategoryId:1, CategoryName:"Electronics"}, {CategoryId:2, CategoryName:"Footwear"}, {CategoryId:3, CategoryName: "Fashion"}])
+
+* Products Table [tblproducts]
+
+>db.tblproducts.insert([{ProductId:1, Name:"Samsung TV", Price:45000.53, IsInStock:true, Photo:"../Images/tv.jpg", CategoryId:1}])
+
+To View List of Records:
+> db.tblcategories.find().pretty()
+> db.tblproducts.find().pretty()
+
+
+	         Node JS
+
