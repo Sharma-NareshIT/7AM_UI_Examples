@@ -1,0 +1,77 @@
+		Node JS
+- Server Scripting Technology
+- It is javascript based.
+- Server side scripting is a technique used in web development, where scripts are employed on server in order to generate a response customized for every client request.
+- Node JS server side programs are written in ".js" file
+- To Compile and run Node JS program you can use the Node JS compiler.
+
+	> node program.js
+
+Connecting with MongoDb from Node JS:
+==================================
+1. You have to install a package for MongoDb, this package contains all library to communicate with MongoDb.
+
+       C:\Ishop\ServerSide> npm install mongodb
+
+2. Create a new JavaScript file by name "test.js"
+
+
+	              "test.js"
+var mongoClient = require("mongodb").MongoClient;
+var url = "mongodb://127.0.0.1:27017";
+
+mongoClient.connect(url, function(err, clientObj){
+    if(!err) {
+        console.log("Connected Successfully..");
+    } else {
+        console.log(err);
+    }
+})
+
+3. Open in Terminal or Command Prompt
+
+        C:\Ishop\ServerSide>node test.js
+
+Ex: Program to Connect with Database and Read all records from "tblproducts" table.
+
+		"test.js"
+		========
+var mongoClient = require("mongodb").MongoClient;
+var url = "mongodb://127.0.0.1:27017";
+
+mongoClient.connect(url, function(err, clientObj){
+    if(!err) {
+        var database = clientObj.db("shoppingdb");
+        database.collection("tblproducts").find({}).toArray(function(err, documents){
+            if(!err) {
+                console.log(documents);
+            } else {
+                console.log(err);
+            }
+        })
+    } else {
+        console.log(err);
+    }
+})
+
+Ex: Insert Records into table from Node JS
+
+var mongoClient = require("mongodb").MongoClient;
+var url = "mongodb://127.0.0.1:27017";
+
+mongoClient.connect(url, function(err, clientObj){
+    if(!err) {
+        var database = clientObj.db("shoppingdb");
+        database.collection("tblcategories").insert({CategoryId:4, CategoryName:"Groceries"}, function(err, result){
+            if(!err) {
+                console.log("Record Inserted");
+            }
+        })
+    }
+})
+
+
+
+
+
+
