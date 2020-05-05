@@ -1,0 +1,105 @@
+	             Middleware
+- It is a software framework used to handle communication in network based applications.
+	ex: Express
+
+Ex:
+1. Install Express from Server Side folder
+	>npm install express
+
+2. Add a new file
+		"Test.js"
+var express = require("express");
+var mongoClient = require("mongodb").MongoClient;
+
+var url = "mongodb://127.0.0.1:27017";
+
+var app = express();
+
+app.get("/getProducts", function(request, response){
+    mongoClient.connect(url, function(err, clientObj){
+        if(!err) {
+            var database = clientObj.db("shoppingdb");
+            database.collection("tblproducts").find({}).toArray(function(err, documents){
+                if(!err) {
+                    response.send(documents);
+                }
+            })
+        }
+    })
+})
+
+app.get("/getCategories", function(req, res){
+    mongoClient.connect(url, function(err, clientObj){
+        if(!err) {
+            var database = clientObj.db("shoppingdb");
+            database.collection("tblcategories").find({}).toArray(function(err, documents){
+                if(!err) {
+                    res.send(documents);
+                }
+            })
+        }
+    })
+})
+
+app.get("/getUsers", function(req, res){
+    mongoClient.connect(url, function(err, clientObj){
+        if(!err) {
+            var database = clientObj.db("shoppingdb");
+            database.collection("tblregister").find({}).toArray(function(err, documents){
+                if(!err) {
+                    res.send(documents);
+                }
+            })
+        }
+    })
+})
+app.listen(8080);
+console.log("Server Listening on: http://127.0.0.1:8080");
+
+3. Add a new HTML file
+		"Home.html"
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <style>
+            img {
+                width: 50px;
+                height: 50px;
+            }
+        </style>
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script>
+            $(function(){
+                var url = "http://127.0.0.1:8080/getProducts";
+                $("button").click(function(){
+                    $.getJSON(url).done(function(data){
+                        $.each(data, function(key, value){
+                            $(`<tr><td>${value.ProductId}</td><td>${value.Name}</td><td>${value.Price}</td><td>${value.IsInStock}</td><td><img src='${value.Photo}'></td></tr>`).appendTo("#tbody");
+                        })
+                    })
+                })
+            })
+        </script>
+    </head>
+    <body class="container">
+        <h2>JQuery Ajax Call</h2>
+        <div class="form-group">
+            <button class="btn btn-primary">Get Products</button>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Product Id</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Is In Stock</th>
+                        <th>Preview</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
