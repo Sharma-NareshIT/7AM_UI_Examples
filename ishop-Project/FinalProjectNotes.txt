@@ -1,0 +1,283 @@
+var mongoClient = require("mongodb").MongoClient;
+var express = require("express");
+var bodyParser = require("body-parser");
+
+var url = "mongodb://127.0.0.1:27017";
+var app = express();
+
+app.use(bodyParser.urlencoded({
+    extended:true
+}));
+app.use(bodyParser.json());
+
+// CORS Settings
+
+app.use(function(req, res, next){
+    res.header("Access-Control-Allow-Origin","*");
+    res.header("Access-Control-Allow-Header","Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods","GET","POST","PUT");
+    next();
+});
+
+app.get("/getcategories", function(req, res){
+    mongoClient.connect(url, function(err, clientObj){
+        if(!err) {
+            var database = clientObj.db("shoppingdb");
+            database.collection("tblcategories").find({}).toArray(function(err, documents){
+                if(!err) {
+                    res.send(documents);
+                }
+            })
+        }
+    })
+});
+app.get("/getproducts", function(req, res){
+    mongoClient.connect(url, function(err, clientObj){
+        if(!err) {
+            var database = clientObj.db("shoppingdb");
+            database.collection("tblproducts").find({}).toArray(function(err, documents){
+                if(!err) {
+                    res.send(documents);
+                }
+            })
+        }
+    })
+});
+app.get("/getusers", function(req, res){
+    mongoClient.connect(url, function(err, clientObj){
+        if(!err) {
+            var database = clientObj.db("shoppingdb");
+            database.collection("tblregister").find({}).toArray(function(err, documents){
+                if(!err) {
+                    res.send(documents);
+                }
+            })
+        }
+    })
+});
+app.post("/registerusers", function(req, res){
+   var data = {
+       UserId: req.body.UserId,
+       UserName: req.body.UserName,
+       Password: req.body.Password,
+       Email: req.body.Email,
+       Mobile: req.body.Mobile,
+       Address: req.body.Address
+   };
+   mongoClient.connect(url, function(err, clientObj){
+        if(!err) {
+            var database = clientObj.db("shoppingdb");
+            database.collection("tblregister").insert(data, function(err, result){
+                if(!err) {
+                    console.log("Record Inserted");
+                }
+            })
+        }
+   })
+})
+app.listen(8080);
+console.log("Server Started: http://127.0.0.1:8080");
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>I-Shop | Online Shopping</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .card-deck {
+                display: block;
+                overflow: scroll;
+            }
+            .card {
+                width:200px;
+            }
+            *{
+                box-sizing: border-box;
+            }
+            html {
+                font-family: Arial;
+            }
+            .row::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+            [class*="col-"] {
+                float: left;
+                padding: 15px;
+            }
+            .header {
+                background-color: darkred;
+                color:white;
+                padding: 15px;
+                text-align: center;
+            }
+            .menu ul {
+                list-style-type: none;
+                margin: 0px;
+                padding: 0px;
+            }
+            .menu li {
+                padding: 10px;
+                margin-bottom: 6px;
+                background-color: darkcyan;
+                color:white;
+                box-shadow: 2px 3px 4px darkcyan;
+                border:1px solid darkcyan
+            }
+            .menu li:hover {
+                background-color: lightcyan;
+                color:black;
+            }
+            .footer {
+                background-color: darkred;
+                color: white;
+                text-align: center;
+                font-size: 16px;
+                padding: 15px;
+            }
+            form {
+                width:200px;
+                border:1px solid darkcyan;
+                box-shadow: 2px 2px 3px darkcyan;
+                padding:10px;
+            }
+            [class*="col-"] {
+                width: 100%;
+            }
+            @media only screen and (min-width:786px) {
+                .col-1 {width: 8.30%;}
+                .col-2 {width: 16.60%}
+                .col-3 {width: 25%;}
+                .col-4 {width: 33%}
+                .col-5 {width: 40%}
+                .col-6 {width: 50%;}
+                .col-7 {width: 60%}
+                .col-8 {width: 68%}
+                .col-9 {width: 75%;}
+                .col-10 {width: 83%}
+                .col-11 {width: 91.66%}
+                .col-12{width: 100%;}
+            }
+        </style>
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+        <script src="../node_modules/angular/angular.js"></script>
+        <script>
+            var app=angular.module("ShoppingApp",[]);
+            app.controller("IndexController", function($scope, $http){
+                $scope.categories = [];
+                $scope.products = [];
+                $http.get("http://127.0.0.1:8080/getcategories")
+                     .then(function(response){
+                        $scope.categories = response.data;
+                     });
+                $http.get("http://127.0.0.1:8080/getproducts")
+                     .then(function(response){
+                        $scope.products = response.data;
+                     })
+                $scope.RegisterUser = function(user) {
+                    $http.post("http://127.0.0.1:8080/registerusers",user);
+                    alert("Registed Successfully..");
+                }
+            })
+        </script>
+    </head>
+    <body ng-app="ShoppingApp" ng-controller="IndexController">
+        <div class="header">
+            <h2>I-Shop | Online Shopping</h2>
+        </div>
+        <div class="row">
+            <div class="col-3 col-s-3 menu">
+              <ul>
+                  <li ng-repeat="item in categories">
+                      {{item.CategoryName}}
+                  </li>
+              </ul>
+            </div>
+            <div class="col-6 col-s-9">
+                <h2>Featured Products</h2>
+                <div class="card-deck">
+                    <div class="card" ng-repeat="item in products | filter:search">
+                        <div class="card-header">
+                            <div class="card-title">{{item.Name}}</div>
+                        </div>
+                        <div class="card-body">
+                            <img src="{{item.Photo}}" width="100" height="100" >
+                        </div>
+                        <div class="card-body">
+                            <div>{{item.Price}}</div>
+                            <div>Stock : {{(item.IsInStock==true)?"Available":"Out Of Stock"}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3 col-s-12">
+                <div class="aside">
+                    <form>
+                        <dl>
+                            <dt>Search Product</dt>
+                            <dd>
+                                <input type="text" class="form-control" ng-model="search">
+                            </dd>
+                            <dt>Sort Products</dt>
+                            <dd>
+                                <select class="form-control">
+                                    <option>Price</option>
+                                    <option>Category</option>
+                                    <option>Name</option>
+                                </select>
+                            </dd>
+                        </dl>
+                    </form>
+                    <form method="POST" ng-submit="RegisterUser(user)">
+                        <h2>Register</h2>
+                        <div class="form-group">
+                         <label>User Id</label>
+                         <div>
+                             <input type="text" ng-model="user.UserId" class="form-control">
+                         </div>
+                        </div>
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <div>
+                                <input type="text" ng-model="user.UserName" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Password</label>
+                            <div>
+                                <input type="password" ng-model="user.Password" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <div>
+                                <input type="email" ng-model="user.Email" class="form-control">
+                            </div>
+                           </div>
+                        <div class="form-group">
+                        <label>Mobile</label>
+                        <div>
+                            <input type="text" ng-model="user.Mobile" class="form-control">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <div>
+                                <input type="text" ng-model="user.Address" class="form-control">
+                            </div>
+                           </div>
+                           <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                           </div>
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+        <div class="footer">
+            <i>&copy; copyright 2020 I-Shop</i>
+        </div>
+    </body>
+</html>
