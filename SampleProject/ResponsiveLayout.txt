@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            .row::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+            [class*="col-"] {
+                float: left;
+                padding: 15px;
+            }
+            html {
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+            .header {
+                background-color: darkcyan;
+                color: white;
+                padding: 15px;
+                text-align: center;
+            }
+            .menu ul {
+                list-style-type: none;
+                margin:0px;
+                padding: 0px;
+            }
+            .menu li {
+                padding: 8px;
+                margin-bottom: 8px;
+                background-color: limegreen;
+                color:white;
+                box-shadow: 2px 2px 4px black;
+            }
+            .menu li:hover {
+                background-color: black;
+                color:white;
+            }
+            .aside {
+                background-color: yellow;
+                color:red;
+                padding: 15px;
+                text-align: center;
+                font-size: 14px;
+                box-shadow: 2px 3px 4px black;
+            }
+            .footer {
+                background-color: darkcyan;
+                color:white;
+                text-align: center;
+                font-size: 12px;
+                padding: 15px;
+                font-style: italic;
+            }
+            [class*="col-"] {
+                width: 100%;
+            }
+            /*for tablets */
+            @media only screen and (min-width:600px) {
+            .col-s-1 {width: 8%;}
+            .col-s-2 {width: 16%;}
+            .col-s-3 {width: 25%;}
+            .col-s-4 {width: 33%;}
+            .col-s-5 {width: 41%;}
+            .col-s-6 {width: 50%;}
+            .col-s-7 {width: 58%;}
+            .col-s-8 {width: 66%;}
+            .col-s-9 {width: 75%;}
+            .col-s-10 {width: 83%;}
+            .col-s-11 {width: 90%;}
+            .col-s-12 {width: 100%;}
+            }
+            /* Desktop - Laptop */
+            @media only screen and (min-width:768px) {
+            .col-s-1 {width: 8%;}
+            .col-s-2 {width: 16%;}
+            .col-s-3 {width: 25%;}
+            .col-s-4 {width: 33%;}
+            .col-s-5 {width: 41%;}
+            .col-s-6 {width: 50%;}
+            .col-s-7 {width: 58%;}
+            .col-s-8 {width: 66%;}
+            .col-s-9 {width: 75%;}
+            .col-s-10 {width: 83%;}
+            .col-s-11 {width: 90%;}
+            .col-s-12 {width: 100%;}
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>I-Shop | Shopping Online</h1>
+        </div>
+        <div class="row">
+            <div class="col-3 col-s-3 menu">
+                <ul>
+                    <li>Electronics</li>
+                    <li>Footwear</li>
+                    <li>Fashion</li>
+                    <li>Groceries</li>
+                </ul>
+            </div>
+            <div class="col-6 col-s-9">
+              <h2>Shopping Home</h2>
+              <p>Depending on how you obtained the Windows software, this is a license agreement between (i) you and the device manufacturer or software installer that distributes the software with your device; or (ii) you and Microsoft Corporation (or, based on where you live or, if a business, where your principal place of business is located, one of its affiliates) if you acquired the software from a retailer. Microsoft is the device manufacturer for devices produced by Microsoft or one of its affiliates, and Microsoft is the retailer if you acquired the software directly from Microsoft. Note that if you are a volume license customer, use of this software is subject to your volume license agreement rather than this agreement.
+            </p>
+            </div>
+            <div class="col-3 col-s-12">
+              <div class="aside">
+                <h2>Electronics</h2>
+                <p>50% off on Electornics</p>
+                <h2>Footwear</h2>
+                <p>70% off on New Arrivals</p>
+                <h2>Groceries</h2>
+                <p>30% off - Online</p>
+                <h2>Fashion</h2>
+                <p>New Arrivals with 40% off</p>
+              </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p>&copy; Copyright 2020 I-Shop</p>
+        </div>
+    </body>
+</html>
